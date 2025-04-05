@@ -1,0 +1,8 @@
+Step To create ExlusiveVip Compoenent
+-> create Compoenent & import Compoenent into App.jsx
+-> Embedd modal button in Our Compoenent
+-> Go to bootstrap & import modal button in our Compoenent
+-> in modal we need to create a 1 form (name, quantity)
+-> Add validation on form Dependancy(npm i react-hook-form)
+-> Form submission data should be store inside Local Storage
+-> we ll import that data form data in table format in our Compoenent
