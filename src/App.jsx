@@ -4,7 +4,6 @@ import Login from "./components/login/Login";
 import Register from "./components/login/Register";
 import Navbar from "./components/Navbar";
 import Console from "./components/section/Console";
-import ExlusiveVip from "./components/section/ExlusiveVip";
 import "./index.css";
 import "bootstrap/dist/css/bootstrap.min.css";
 import "bootstrap/dist/js/bootstrap.bundle.min";
@@ -26,6 +25,7 @@ function App() {
   const handleLogout = () => {
     localStorage.removeItem("isLoggedIn");
     localStorage.removeItem("loggedInUser");
+    localStorage.removeItem("token");
     setIsLoggedIn(false);
     setLoggedInUser(null);
   };
@@ -36,9 +36,8 @@ function App() {
         <>
           <Navbar />
           <div className="container text-center mt-3">
-            <h2>Welcome, {loggedInUser?.fullName}!</h2> {/* Show logged-in user's phone */}
+            <h2>Welcome, {loggedInUser?.name || "User"}!</h2>
           </div>
-          {/* <ExlusiveVip /> */}
           <Routes>
             <Route path="/" element={<Navigate to={`/${new Date().toISOString().slice(0, 10)}`} />} />
             <Route path="/:date" element={<Console />} />
@@ -49,7 +48,15 @@ function App() {
         </>
       ) : (
         <Routes>
-          <Route path="/" element={<Login setIsLoggedIn={setIsLoggedIn} setLoggedInUser={setLoggedInUser} />} />
+          <Route
+            path="/"
+            element={
+              <Login
+                setIsLoggedIn={setIsLoggedIn}
+                setLoggedInUser={setLoggedInUser}
+              />
+            }
+          />
           <Route path="/register" element={<Register />} />
         </Routes>
       )}
