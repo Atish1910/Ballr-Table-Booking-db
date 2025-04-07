@@ -25,7 +25,7 @@ function Navbar() {
                 <div className="d-flex justify-content-between align-items-center border mb-3 py-2  px-5">
                         <img src="src/img/logo/1.png" alt="Logo" />
                         <div className="">
-                            {storedUser?.user === "Admin" && <Pr />}
+                            {storedUser?.accountType === "Admin" && <Pr />}
                         </div>
                         <h1 className="text-center h3">Table Booking App</h1>
                 </div>

@@ -1,31 +1,42 @@
 import { useEffect, useState } from "react";
+import axios from "axios";
 
 function Pr() {
   const [prUsers, setPrUsers] = useState([]);
 
   useEffect(() => {
-    const storedUsers = JSON.parse(localStorage.getItem("users")) || [];
-    const filteredUsers = storedUsers.filter(user => user.user === "PR"); // Get only PR users
-    setPrUsers(filteredUsers);
+    fetchPRUsers();
   }, []);
 
-  const toggleActive = (index) => {
-    const isActiveSure = window.confirm("Are you sure you want to Activate/Deactivate this user?");
-    if (isActiveSure) {
-      const updatedUsers = [...prUsers];
-      updatedUsers[index].isActivate = !updatedUsers[index].isActivate; // Toggle isActivate
-
-      // Update all users in localStorage
-      const allUsers = JSON.parse(localStorage.getItem("users")) || [];
-      const updatedAllUsers = allUsers.map(user =>
-        user.email === updatedUsers[index].email ? { ...user, isActivate: updatedUsers[index].isActivate } : user
-      );
-
-      localStorage.setItem("users", JSON.stringify(updatedAllUsers));
-      setPrUsers(updatedUsers); // Update state with the modified users
+  const fetchPRUsers = async () => {
+    try {
+      const response = await axios.get("https://ballr-wpc0.onrender.com/api/v1/signup");
+      const allUsers = response.data;
+      const filteredUsers = allUsers.filter(user => user.user === "PR");
+      setPrUsers(filteredUsers);
+    } catch (err) {
+      console.error("Failed to fetch PR users:", err);
     }
   };
-  
+
+  const toggleActive = async (index) => {
+    const isActiveSure = window.confirm("Are you sure you want to Activate/Deactivate this user?");
+    if (!isActiveSure) return;
+
+    const userToUpdate = prUsers[index];
+    const updatedStatus = !userToUpdate.isActivate;
+
+    try {
+      await axios.put(`https://ballr-wpc0.onrender.com/api/v1/signup/${userToUpdate._id}`, {
+        isActivate: updatedStatus
+      });
+
+      // Refresh data after successful update
+      fetchPRUsers();
+    } catch (err) {
+      console.error("Failed to update activation status:", err);
+    }
+  };
 
   return (
     <>
@@ -54,7 +65,7 @@ function Pr() {
                 <tbody>
                   {prUsers.length > 0 ? (
                     prUsers.map((user, index) => (
-                      <tr key={index}>
+                      <tr key={user._id}>
                         <td>{index + 1}</td>
                         <td>{user.fullName}</td>
                         <td>{user.email}</td>
@@ -63,8 +74,8 @@ function Pr() {
                           <input
                             type="checkbox"
                             className="form-check-input"
-                            checked={user.isActivate || false} // Ensure it defaults to false
-                            onChange={() => toggleActive(index)} // Toggle state on click
+                            checked={user.isActivate || false}
+                            onChange={() => toggleActive(index)}
                           />
                         </td>
                       </tr>
