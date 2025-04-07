@@ -31,7 +31,7 @@ function Console() {
       ...bookedTables, 
       [data.tableId]: { 
         booked: true, 
-        fullName: data.fullName, 
+        fullName: data.name, 
         quantity: data.quantity,
         bookedBy: loggedInUser.fullName // Store only PR Name
       } 
