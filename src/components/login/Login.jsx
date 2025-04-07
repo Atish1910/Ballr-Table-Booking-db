@@ -3,7 +3,7 @@ import { useForm } from "react-hook-form";
 import toast from "react-hot-toast";
 import { useNavigate } from "react-router-dom";
 
-function Login( setIsLoggedIn, setLoggedInUser ) {
+function Login({ setIsLoggedIn, setLoggedInUser }) {
   const navigate = useNavigate();
 
   const {
@@ -14,43 +14,38 @@ function Login( setIsLoggedIn, setLoggedInUser ) {
 
   async function onLogin(data) {
     try {
-      const response = await axios.post("https://ballr-wpc0.onrender.com/api/v1/login");
-  
+      // Send login data to API
+      const response = await axios.post("https://ballr-wpc0.onrender.com/api/v1/login", data);
+
       if (response.status === 200 && response.data.success) {
-        const userExists = response.data.user;
-        const userPhone = userExists?.contactNumber;
-  
-        if (userExists) {
-          if (userExists.isActivate === false) {
-            toast.error("Contact Administration to activate your account");
-            return;
-          }
-  
-          toast.success("Login Successful!");
-          localStorage.setItem("isLoggedIn", "true");
-          localStorage.setItem("loggedInUser", JSON.stringify(userExists));
-          // Optional: setIsLoggedIn(true); setLoggedInUser(userExists);
-          setIsLoggedIn(true);
-            setLoggedInUser(userExists);
-          navigate("/");
-          
-        } else {
-          if (!userPhone) {
-            toast.error("Your Phone No is not registered. Please register your phone number.");
-          } else {
-            toast.error("You entered the wrong password.");
-          }
+        const user = response.data.user;
+
+        if (!user) {
+          toast.error("User not found.");
+          return;
         }
+
+        if (!user.isActivate) {
+          toast.error("Contact Administration to activate your account.");
+          return;
+        }
+
+        toast.success("Login Successful!");
+        localStorage.setItem("isLoggedIn", "true");
+        localStorage.setItem("loggedInUser", JSON.stringify(user));
+        setIsLoggedIn(true);
+        setLoggedInUser(user);
+        navigate("/");
       } else {
-        toast.error(response.data.message || "Invalid credentials");
+        toast.error(response.data.message || "Invalid credentials.");
       }
     } catch (error) {
       console.error("Login error:", error);
-      const errorMessage = error.response?.data?.message || "Server error. Please try again.";
+      const errorMessage =
+        error.response?.data?.message || "Server error. Please try again.";
       toast.error(errorMessage);
     }
   }
-  
 
   return (
     <section className="login_01">
@@ -79,11 +74,15 @@ function Login( setIsLoggedIn, setLoggedInUser ) {
 
               {/* Submit Button */}
               <div className="">
-                <button className="btn btn-success" type="submit">
+                <button className="btn btn-success" type="submit" disabled={isSubmitting}>
                   {isSubmitting ? "Logging in..." : "Login"}
                 </button>
                 <p className="mb-0 py-2 text-white">Don’t have an account?</p>
-                <button className="btn btn-primary" onClick={() => navigate("/register")}>
+                <button
+                  type="button"
+                  className="btn btn-primary"
+                  onClick={() => navigate("/register")}
+                >
                   Register
                 </button>
               </div>
