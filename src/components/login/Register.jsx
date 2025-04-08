@@ -13,18 +13,16 @@ function Register() {
   } = useForm();
 
   async function onRegistration(data) {
+    debugger
     const newUser = {
       ...data,
-      isActivate: data.accountType === "Pr" ? false : true,
+      isActive: data.accountType == "Pr" ? false : true,
     };
 
     console.log("Registering user:", newUser); // ✅ for debugging
 
     try {
-      const response = await axios.post(
-        "https://ballr-wpc0.onrender.com/api/v1/signup",
-        newUser
-      );
+      const response = await axios.post("https://ballr-wpc0.onrender.com/api/v1/signup",newUser);
 
       if (response.status === 201 || response.status === 200) {
         toast.success("Registration Successful");

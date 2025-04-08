@@ -13,6 +13,7 @@ function Login({ setIsLoggedIn, setLoggedInUser }) {
   } = useForm();
 
   async function onLogin(data) {
+    debugger
     try {
       // Send login data to API
       const response = await axios.post("https://ballr-wpc0.onrender.com/api/v1/login", data);
@@ -25,7 +26,7 @@ function Login({ setIsLoggedIn, setLoggedInUser }) {
           return;
         }
 
-        if (!user.isActivate) {
+        if (!user.isActive) {
           toast.error("Contact Administration to activate your account.");
           return;
         }

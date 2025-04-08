@@ -9,6 +9,7 @@ function Pr() {
   }, []);
 
   const fetchPRUsers = async () => {
+    debugger
     try {
       const response = await axios.get("https://ballr-wpc0.onrender.com/api/v1/getalluser");
       const allUsers = response.data;
@@ -19,6 +20,24 @@ function Pr() {
     }
   };
 
+  const toggleActive = async (index) => {
+    const isActiveSure = window.confirm("Are you sure you want to Activate/Deactivate this user?");
+    if (!isActiveSure) return;
+
+    const userToUpdate = prUsers[index];
+    const updatedStatus = !userToUpdate.isActive;
+
+    try {
+      await axios.put(`https://ballr-wpc0.onrender.com/api/v1/getalluser/${userToUpdate._id}`, {
+        isActive: updatedStatus
+      });
+
+      // Refresh data after successful update
+      fetchPRUsers();
+    } catch (err) {
+      console.error("Failed to update activation status:", err);
+    }
+  };
 
   return (
     <>
@@ -53,7 +72,12 @@ function Pr() {
                         <td>{user.email}</td>
                         <td>{user.phone}</td>
                         <td>
-                          
+                          <input
+                            type="checkbox"
+                            className="form-check-input"
+                            checked={user.isActive || false}
+                            onChange={() => toggleActive(index)}
+                          />
                         </td>
                       </tr>
                     ))
