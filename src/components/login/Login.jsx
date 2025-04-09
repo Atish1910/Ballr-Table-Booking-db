@@ -2,6 +2,7 @@ import axios from "axios";
 import { useForm } from "react-hook-form";
 import toast from "react-hot-toast";
 import { useNavigate } from "react-router-dom";
+import Cookies from 'js-cookie';
 
 function Login({ setIsLoggedIn, setLoggedInUser }) {
   const navigate = useNavigate();
@@ -20,6 +21,21 @@ function Login({ setIsLoggedIn, setLoggedInUser }) {
 
       if (response.status === 200 && response.data.success) {
         const user = response.data.user;
+        console.log(response);
+        debugger
+
+        if (response){
+          Cookies.set('token', response.data.token, {
+            expires: 7,      
+            secure: false,    
+            sameSite: 'Lax',
+          });
+ 
+        }
+        else{
+          console.log("Not able to store Token in Cookies");
+          debugger
+        }
 
         if (!user) {
           toast.error("User not found.");

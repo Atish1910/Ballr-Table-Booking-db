@@ -25,15 +25,17 @@ function Console() {
   const loggedInUser = JSON.parse(localStorage.getItem("loggedInUser")) || { name: "N/A" };
 
   async function onSubmit(data) {
+    debugger
     await new Promise((res) => setTimeout(res, 1000));
     
     const updatedBookings = { 
       ...bookedTables, 
       [data.tableId]: { 
         booked: true, 
-        fullName: data.name, 
+        fullName: data.fullName, 
         quantity: data.quantity,
-        bookedBy: loggedInUser.fullName // Store only PR Name
+        bookedBy: loggedInUser.name, // Store only PR Name
+        currDate: new Date().toLocaleString("en-GB") // formatted date & time string
       } 
     };
     
@@ -116,6 +118,7 @@ function Console() {
                   <th>PR Name</th>
                   <th>Guest Name</th>
                   <th>Guest Quantity</th>
+                  <th>Time</th>
                 </tr>
               </thead>
               <tbody>
@@ -125,6 +128,7 @@ function Console() {
                     <td>{booking.bookedBy}</td>
                     <td>{booking.fullName}</td>
                     <td>{booking.quantity}</td>
+                    <td>{booking.currDate}</td>
                   </tr>
                 ))}
               </tbody>
