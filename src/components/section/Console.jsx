@@ -2,6 +2,7 @@
 import { useState, useEffect } from "react";
 import { useParams } from "react-router-dom";
 import { useForm } from "react-hook-form";
+import Pr from "../login/Pr";
 
 function Console() {
   const { date } = useParams();

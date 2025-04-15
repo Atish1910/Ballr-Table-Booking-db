@@ -1,6 +1,8 @@
 import { useEffect, useState } from "react";
 import { NavLink, useParams } from "react-router-dom";
 import Pr from "./login/Pr";
+import GetPostApi from "./login/GetPostApi";
+import Practice from "./login/Practice";
 
 function Navbar() {
 
@@ -25,7 +27,7 @@ function Navbar() {
                 <div className="d-flex justify-content-between align-items-center border mb-3 py-2  px-5">
                         <img src="src/img/logo/1.png" alt="Logo" />
                         <div className="">
-                            {storedUser?.accountType === "Admin" && <Pr />}
+                            {storedUser?.accountType === "Admin" && <Pr></Pr>}
                         </div>
                         <h1 className="text-center h3">Table Booking App</h1>
                 </div>
@@ -49,6 +51,9 @@ function Navbar() {
                             </div>
                         );
                     })}
+                </div>
+                <div className="row">
+                <Practice></Practice>
                 </div>
             </div>
         </section>
