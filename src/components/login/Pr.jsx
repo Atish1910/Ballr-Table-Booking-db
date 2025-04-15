@@ -9,13 +9,14 @@ function Pr() {
   }, []);
 
   const fetchPRUsers = async () => {
+    debugger
     try {
       const response = await axios.get("http://localhost:4000/api/v1/getalluser", {
         withCredentials: true,
       });
 
       const allUsers = response.data.data;
-      const prOnly = allUsers.filter((user) => user.accountType === "Pr");
+      const prOnly = allUsers.filter((user) => user.custId == "" );
       setPrUsers(prOnly);
     } catch (err) {
       console.error("Failed to fetch PR users:", err);
