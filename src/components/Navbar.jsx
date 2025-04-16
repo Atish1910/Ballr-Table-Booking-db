@@ -32,7 +32,6 @@ function Navbar() {
                         <h1 className="text-center h3">Table Booking App</h1>
                 </div>
                 <div className="row text-center" >
-                    
                     {dates.map((d, index) => {
                         const dateObj = new Date(d);
                         const day = dateObj.getDate(); // Get date (e.g., 30)
@@ -51,9 +50,6 @@ function Navbar() {
                             </div>
                         );
                     })}
-                </div>
-                <div className="row">
-                <Practice></Practice>
                 </div>
             </div>
         </section>

@@ -2,7 +2,7 @@ import axios from "axios";
 import { useForm } from "react-hook-form";
 import toast from "react-hot-toast";
 import { useNavigate } from "react-router-dom";
-import Cookies from 'js-cookie';
+import Cookies from "js-cookie";
 
 function Login({ setIsLoggedIn, setLoggedInUser }) {
   const navigate = useNavigate();
@@ -17,30 +17,11 @@ function Login({ setIsLoggedIn, setLoggedInUser }) {
     debugger
     try {
       // Send login data to API
-      const response = await axios.post("https://ballr-wpc0.onrender.com/api/v1/login", data);
+      const response = await axios.post("http://localhost:4000/login", data);
 
-      if (response.status === 200 && response.data.success) {
+      if (response.status === 200) {
         const user = response.data.user;
         console.log(response);
-        debugger
-
-        if (response){
-          Cookies.set('token', response.data.token, {
-            expires: 7,      
-            secure: false,    
-            sameSite: 'Lax',
-          });
- 
-        }
-        else{
-          console.log("Not able to store Token in Cookies");
-          debugger
-        }
-
-        if (!user) {
-          toast.error("User not found.");
-          return;
-        }
 
         if (!user.isActive) {
           toast.error("Contact Administration to activate your account.");

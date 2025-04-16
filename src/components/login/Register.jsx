@@ -22,7 +22,7 @@ function Register() {
     console.log("Registering user:", newUser); // ✅ for debugging
 
     try {
-      const response = await axios.post("https://ballr-wpc0.onrender.com/api/v1/signup",newUser);
+      const response = await axios.post("http://localhost:4000/register",newUser);
 
       if (response.status === 201 || response.status === 200) {
         toast.success("Registration Successful");

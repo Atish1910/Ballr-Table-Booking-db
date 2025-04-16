@@ -9,51 +9,27 @@ function Pr() {
   }, []);
 
   const fetchPRUsers = async () => {
-    debugger
     try {
-      const response = await axios.get("http://localhost:4000/api/v1/getalluser", {
-        withCredentials: true,
+      const response = await axios.get("http://localhost:4000/getallusers", {
       });
-
+  
       const allUsers = response.data.data;
-      const prOnly = allUsers.filter((user) => user.custId == "" );
-      setPrUsers(prOnly);
+      console.log("Fetched users:", allUsers);  // 🔍 Debug log
+  
+      if (Array.isArray(allUsers)) {
+        const prOnly = allUsers.filter((user) => user.accountType === "Pr");
+        setPrUsers(prOnly);
+      } else {
+        console.error("Data format issue: not an array");
+      }
+  
     } catch (err) {
       console.error("Failed to fetch PR users:", err);
     }
   };
+  
 
-  const toggleActiveStatus = async (index) => {
-    debugger
-    const user = prUsers[index];
-    const updatedStatus = !user.isActive;
-
-    const confirmChange = window.confirm(
-      `Are you sure you want to ${updatedStatus ? "activate" : "deactivate"} this user?`
-    );
-    if (!confirmChange) return;
-
-    try {
-      await axios.post(
-        "http://localhost:4000/api/v1/updateisactive",
-        {
-          prId: user._id,
-          isActive: updatedStatus,
-        },
-        {
-          withCredentials: true, // ✅ Important to include auth cookies
-        }
-      );
-
-      // ✅ Update local state directly
-      const updatedUsers = [...prUsers];
-      updatedUsers[index].isActive = updatedStatus;
-      setPrUsers(updatedUsers);
-    } catch (err) {
-      console.error("Failed to update activation status:", err.response?.data || err.message);
-      alert(err.message);
-    }
-  };
+  
 
   return (
 <>
@@ -91,9 +67,7 @@ function Pr() {
                 <td>{user.email}</td>
                 <td>{user.contactNumber}</td>
                 <td>
-                  <input type="checkbox" className="form-check-input" checked={user.isActive || false} onChange={()=>
-                  toggleActiveStatus(index)}
-                  />
+                  <input type="checkbox" className="form-check-input"/>
                 </td>
               </tr>
               ))
