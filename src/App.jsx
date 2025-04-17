@@ -39,7 +39,7 @@ function App() {
             <h2>Welcome, {loggedInUser?.name || "User"}!</h2>
           </div>
           <Routes>
-            <Route path="/" element={<Navigate to={`/${new Date().toISOString().slice(0, 10)}`} />} />
+              <Route path="/" element={<Navigate to={`/${new Date().toISOString().slice(0, 10)}`} />} />
             <Route path="/:date" element={<Console />} />
           </Routes>
           <div className="text-center">

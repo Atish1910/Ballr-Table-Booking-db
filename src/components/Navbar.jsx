@@ -1,8 +1,6 @@
 import { useEffect, useState } from "react";
 import { NavLink, useParams } from "react-router-dom";
 import Pr from "./login/Pr";
-import GetPostApi from "./login/GetPostApi";
-import Practice from "./login/Practice";
 
 function Navbar() {
 
