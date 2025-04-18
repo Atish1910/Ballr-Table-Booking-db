@@ -3,21 +3,26 @@ import mongoose from "mongoose";
 import cors from "cors";
 import dotenv from "dotenv";
 import User from "./models/User.js";
+import Booking from "./models/Booking.js";
 
-dotenv.config();
-const app = express();
+dotenv.config(); //loads data from your .env.
+const app = express();  //initilise express server
 
 
-app.use(cors());
-app.use(express.json());
+app.use(cors()); // allow request from any domain
+app.use(express.json()); // parser incomming json request
+
 
 // MongoDB Connection
+// connect your DB and fetch url from.env file
 mongoose.connect(process.env.MONGO_URL, {
   useNewUrlParser: true,
   useUnifiedTopology: true,
 })
+// logs success or error message
 .then(() => console.log("✅ MongoDB connected"))
 .catch((err) => console.error("❌ DB Connection Error:", err));
+
 
 // POST: Register
 app.post("/register", async (req, res) => {
@@ -145,6 +150,60 @@ app.delete("/delete-user/:userId", async (req, res) => {
     res.status(500).json({
       success: false,
       message: "Internal server error"
+    });
+  }
+});
+
+//////////////////////////////////////////////////////////////////////////////////////////////////////////////////
+//////////////////////////////////////////////////////////////////////////////////////////////////////////////////
+// Booking Api
+//////////////////////////////////////////////////////////////////////////////////////////////////////////////////
+//////////////////////////////////////////////////////////////////////////////////////////////////////////////////
+//01 : Create New Booking
+// POST: Create new booking
+app.post("/create-booking", async (req, res) => {
+  try {
+    const newBooking = new Booking(req.body);
+    await newBooking.save();
+
+    res.status(201).json({
+      success: true,
+      message: "Booking created successfully!",
+      data: newBooking
+    });
+  } catch (error) {
+    console.error("Booking error:", error);
+    res.status(500).json({
+      success: false,
+      message: "Internal server error"
+    });
+  }
+});
+
+
+
+//Get Api 
+app.get("/getallbookings", async (req, res) => {
+  try {
+    const allBookings = await Booking.find();  // 👈 added await
+
+    if (!allBookings || allBookings.length === 0) {
+      return res.status(400).json({
+        success: false,
+        message: "No User Found"
+      });
+    }
+
+    return res.status(200).json({
+      success: true,
+      message: "All Bookings fetched successfully",
+      data: allBookings
+    });
+
+  } catch (err) {
+    return res.status(500).json({
+      success: false,
+      message: "Can Not fetch internal server error"
     });
   }
 });
