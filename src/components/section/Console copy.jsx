@@ -1,40 +1,20 @@
-
 // Import necessary React hooks and libraries
-import {
-  useState,
-  useEffect
-} from "react";
-import {
-  useParams
-} from "react-router-dom";
-import {
-  useForm
-} from "react-hook-form";
-import Pr from "../login/Pr";
+import { useState, useEffect } from "react";
+import { useParams } from "react-router-dom";
+import { useForm } from "react-hook-form";
 
 function Console() {
-  const {
-    date
-  } = useParams();
+  const { date } = useParams();
   const currentDate = new Date(date).toLocaleDateString("en-GB");
-
-  const {
-    register,
-    handleSubmit,
-    setValue,
-    reset,
-    formState: {
-      errors,
-      isSubmitting
-    }
-  } = useForm();
+  
+  const { register, handleSubmit, setValue, reset, formState: { errors, isSubmitting } } = useForm();
 
   const [bookedTables, setBookedTables] = useState(() => {
-    return JSON.parse(localStorage.getItem(bookings_${date})) || {};
+    return JSON.parse(localStorage.getItem(`bookings_${date}`)) || {};
   });
 
   useEffect(() => {
-    setBookedTables(JSON.parse(localStorage.getItem(bookings_${date})) || {});
+    setBookedTables(JSON.parse(localStorage.getItem(`bookings_${date}`)) || {});
   }, [date]);
 
   function handleTableClick(event) {
@@ -42,28 +22,24 @@ function Console() {
     setValue("tableId", tableId);
   }
 
-  const loggedInUser = JSON.parse(localStorage.getItem("loggedInUser")) || {
-    name: "N/A"
-  };
+  const loggedInUser = JSON.parse(localStorage.getItem("loggedInUser")) || { name: "N/A" };
 
   async function onSubmit(data) {
-    debugger
     await new Promise((res) => setTimeout(res, 1000));
-
-    const updatedBookings = {
-      ...bookedTables,
-      [data.tableId]: {
-        booked: true,
-        guestName: data.guestName,
-        guestQuantity: data.guestQuantity,
-        prName: loggedInUser.name, // Store only PR Name
-        currDate: new Date().toLocaleString("en-GB") // formatted date & time string
-      }
+    
+    const updatedBookings = { 
+      ...bookedTables, 
+      [data.tableId]: { 
+        booked: true, 
+        fullName: data.fullName, 
+        quantity: data.quantity,
+        bookedBy: loggedInUser.fullName // Store only PR Name
+      } 
     };
-
-    localStorage.setItem(bookings_${date}, JSON.stringify(updatedBookings));
+    
+    localStorage.setItem(`bookings_${date}`, JSON.stringify(updatedBookings));
     setBookedTables(updatedBookings);
-
+    
     document.getElementById("closeModal").click();
     reset();
   }
@@ -81,7 +57,7 @@ function Console() {
             <div key={table} className="col border border-dark py-3">
               {bookedTables[table]?.booked ? (
                 <button className="btn btn-secondary" disabled>
-                  Sold : {table} <br /> {bookedTables[table].prName}
+                  Sold : {table} <br /> {bookedTables[table].bookedBy}
                 </button>
               ) : (
                 <button 
@@ -108,18 +84,18 @@ function Console() {
               </div>
               <div className="modal-body">
                 <form onSubmit={handleSubmit(onSubmit)} className="form-control py-3 border border-dark">
-                  <input type="hidden" {...register("tableNo")} />
+                  <input type="hidden" {...register("tableId")} />
                   <input 
                     type="text" 
                     placeholder="Enter Guest Name" 
-                    className={mb-3 form-control ${errors.fullName ? "input-errors" : ""}} 
-                    {...register("guestName", { required: true })} 
+                    className={`mb-3 form-control ${errors.fullName ? "input-errors" : ""}`} 
+                    {...register("fullName", { required: true })} 
                   />
                   <input 
                     type="number" 
                     placeholder="Enter Guest Quantity" 
-                    className={mb-3 form-control ${errors.quantity ? "input-errors" : ""}} 
-                    {...register("guestQuantity", { required: true })} 
+                    className={`mb-3 form-control ${errors.quantity ? "input-errors" : ""}`} 
+                    {...register("quantity", { required: true })} 
                   />
                   <button className="btn btn-success" disabled={isSubmitting} type="submit">
                     {isSubmitting ? "Please Wait" : "Submit"}
@@ -140,7 +116,6 @@ function Console() {
                   <th>PR Name</th>
                   <th>Guest Name</th>
                   <th>Guest Quantity</th>
-                  <th>Time</th>
                 </tr>
               </thead>
               <tbody>
@@ -150,7 +125,6 @@ function Console() {
                     <td>{booking.bookedBy}</td>
                     <td>{booking.fullName}</td>
                     <td>{booking.quantity}</td>
-                    <td>{booking.currDate}</td>
                   </tr>
                 ))}
               </tbody>

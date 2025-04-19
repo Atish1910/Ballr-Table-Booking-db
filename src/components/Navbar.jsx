@@ -1,8 +1,11 @@
 import { useEffect, useState } from "react";
-import { NavLink, useParams } from "react-router-dom";
+import { NavLink, useNavigate, useParams } from "react-router-dom";
 import Pr from "./login/Pr";
+import TableBookings from "./bookings/TableBookings";
 
 function Navbar() {
+    
+  const navigate = useNavigate();
 
     const storedUser = JSON.parse(localStorage.getItem("loggedInUser"));
 
@@ -19,6 +22,10 @@ function Navbar() {
         return newDate.toISOString().slice(0, 10); // Format as YYYY-MM-DD
     });
 
+    function handleRedirect() {
+        navigate("/TableBookings")
+    }
+
     return (
         <section className="py-3 border navbar_01">
             <div className="container-fluid container-lg py-3">
@@ -26,6 +33,9 @@ function Navbar() {
                         <img src="src/img/logo/1.png" alt="Logo" />
                         <div className="">
                             {storedUser?.accountType === "Admin" && <Pr></Pr>}
+                        </div>
+                        <div className="">
+                            <TableBookings></TableBookings>
                         </div>
                         <h1 className="text-center h3">Table Booking App</h1>
                 </div>

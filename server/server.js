@@ -209,6 +209,36 @@ app.get("/getallbookings", async (req, res) => {
 });
 
 
+// DELETE Booking: Delete a user by ID
+app.delete("/delete-booking/:bookingId", async (req, res) => {
+  try {
+    const { bookingId } = req.params;
+
+    const deletedBooking = await Booking.findByIdAndDelete(bookingId);
+
+    if (!deletedBooking) {
+      return res.status(404).json({
+        success: false,
+        message: "User not found"
+      });
+    }
+
+    res.status(200).json({
+      success: true,
+      message: "User deleted successfully",
+      data: deletedBooking
+    });
+
+  } catch (error) {
+    console.error("Delete user error:", error);
+    res.status(500).json({
+      success: false,
+      message: "Internal server error"
+    });
+  }
+});
+
+
 // Server listening
 const PORT = process.env.PORT || 4209;
 app.listen(PORT, () => console.log(`✅ Server running on port ${PORT}`));  

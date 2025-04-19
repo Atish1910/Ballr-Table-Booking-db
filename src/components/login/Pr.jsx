@@ -34,7 +34,6 @@ function Pr() {
 
   const handleStatusChange = async (userId, newStatus) => {
     const confirmDelete = window.confirm(`Are you sure you want to Activate/De-Activate this User`);
-
     if (!confirmDelete) {
       return;  // exit if user cancels
     }
@@ -63,23 +62,23 @@ function Pr() {
   };
   
   //Delete User From DB
-  // const handleDeleteUser = async (userId) => {
-  //   debugger
-  //   try {
-  //     const response = await axios.delete(`http://localhost:4000/delete-user/${userId}`);
+  const handleDeleteUser = async (userId) => {
+    debugger
+    try {
+      const response = await axios.delete(`http://localhost:4000/delete-user/${userId}`);
   
-  //     if (response.data.success) {
-  //       toast.success("User deleted successfully!");
-  //       // optionally re-fetch users or update UI
-  //     } else {
-  //       toast.error(response.data.message);
-  //     }
+      if (response.data.success) {
+        toast.success("User deleted successfully!");
+        // optionally re-fetch users or update UI
+      } else {
+        toast.error(response.data.message);
+      }
   
-  //   } catch (error) {
-  //     console.error("Error deleting user:", error);
-  //     toast.error("Could not delete user. Please try again.");
-  //   }
-  // };
+    } catch (error) {
+      console.error("Error deleting user:", error);
+      toast.error("Could not delete user. Please try again.");
+    }
+  };
   
   
 
@@ -123,14 +122,14 @@ function Pr() {
                     onChange={(e) => handleStatusChange(user._id, e.target.checked)}
                   />
                 </td>
-                {/* <td>
+                <td>
                   <button 
                     className="btn btn-danger" 
                     onClick={() => handleDeleteUser(user._id)}
                   >
                     Delete
                   </button>
-                </td> */}
+                </td>
               </tr>
               ))
               ) : (

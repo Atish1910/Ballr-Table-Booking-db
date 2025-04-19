@@ -9,7 +9,7 @@ import "./index.css";
 import "bootstrap/dist/css/bootstrap.min.css";
 import "bootstrap/dist/js/bootstrap.bundle.min";
 
-function App() {
+function AppContent() {
   const [isLoggedIn, setIsLoggedIn] = useState(false);
   const [loggedInUser, setLoggedInUser] = useState(null);
 
@@ -36,7 +36,7 @@ function App() {
         <>
           <Navbar />
           <div className="container text-center mt-3">
-            <h2>Welcome, {loggedInUser?.name}!</h2> {/* Show logged-in user's phone */}
+            <h2>Welcome, {loggedInUser?.fullName}!</h2> {/* Show logged-in user's phone */}
           </div>
           {/* <ExlusiveVip /> */}
           <Routes>
@@ -57,4 +57,4 @@ function App() {
   );
 }
 
-export default App;
+export default AppContent;
