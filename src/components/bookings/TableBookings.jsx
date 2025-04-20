@@ -9,10 +9,11 @@ function TableBookings() {
   useEffect(() => {
     fetchBookings();
   }, []);
+  
 
   const fetchBookings = async () => {
     try {
-      const res = await axios.get("http://localhost:4000/getallbookings");
+      const res = await axios.get("https://ballr-mern-ashish.onrender.com/getallbookings");
       setBookings(res.data.data);  // assuming your API returns data in res.data.data
     } catch (err) {
       console.error("Failed to fetch bookings", err);

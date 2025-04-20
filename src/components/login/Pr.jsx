@@ -12,7 +12,7 @@ function Pr() {
   // get api
   const fetchPRUsers = async () => {
     try {
-      const response = await axios.get("http://localhost:4000/getallusers", {
+      const response = await axios.get("https://ballr-mern-ashish.onrender.com/getallusers", {
       });
   
       const allUsers = response.data.data;
@@ -39,7 +39,7 @@ function Pr() {
     }
 
     try {
-      const response = await axios.put(`http://localhost:4000/update-status/${userId}`,
+      const response = await axios.put(`https://ballr-mern-ashish.onrender.com/update-status/${userId}`,
         { isActive: newStatus },
         {
           validateStatus: function (status) {
@@ -65,7 +65,7 @@ function Pr() {
   const handleDeleteUser = async (userId) => {
     debugger
     try {
-      const response = await axios.delete(`http://localhost:4000/delete-user/${userId}`);
+      const response = await axios.delete(`https://ballr-mern-ashish.onrender.com/delete-user/${userId}`);
   
       if (response.data.success) {
         toast.success("User deleted successfully!");

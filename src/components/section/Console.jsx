@@ -32,7 +32,7 @@ function Console() {
   const fetchBookings = async () => {
     debugger
     try {
-      const res = await axios.get("http://localhost:4000/getallbookings");
+      const res = await axios.get("https://ballr-mern-ashish.onrender.com/getallbookings");
       // Filter bookings matching the URL date (bookedDate field)
       const formattedUrlDate = convertDateFormat(date);
 
@@ -69,7 +69,7 @@ function Console() {
     };
 
     try {
-      const response = await axios.post("http://localhost:4000/create-booking",bookedTables);
+      const response = await axios.post("https://ballr-mern-ashish.onrender.com/create-booking",bookedTables);
 
       if (response.data.success) {
         toast.success("Booking successful!");
@@ -94,7 +94,7 @@ function Console() {
       return;  // exit if user cancels
     }
     try {
-      const response = await axios.delete(`http://localhost:4000/delete-booking/${bookingId}`);
+      const response = await axios.delete(`https://ballr-mern-ashish.onrender.com/delete-booking/${bookingId}`);
   
       if (response.data.success) {
         toast.success("Booking deleted successfully!");
