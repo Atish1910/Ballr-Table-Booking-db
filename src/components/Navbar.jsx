@@ -11,9 +11,8 @@ function Navbar() {
 
     
 
-    const today = new Date().toISOString().slice(0, 10); // Get today's date in YYYY-MM-DD format
     const { date } = useParams(); // Get selected date from URL
-    
+    const today = new Date(date).toLocaleDateString("en-GB");
 
     // Generate dates dynamically
     const dates = Array.from({ length: 6 }, (_, i) => {
@@ -29,6 +28,9 @@ function Navbar() {
     return (
         <section className="py-3 border navbar_01">
             <div className="container-fluid container-lg py-3">
+                <div className="row">
+                <h1 className="text-center h3">Table Booking App</h1>
+                </div>
                 <div className="d-flex justify-content-between align-items-center border mb-3 py-2  px-5">
                         <img src="src/img/logo/1.png" alt="Logo" />
                         <div className="">
@@ -37,7 +39,6 @@ function Navbar() {
                         <div className="">
                             <TableBookings></TableBookings>
                         </div>
-                        <h1 className="text-center h3">Table Booking App</h1>
                 </div>
                 <div className="row text-center" >
                     {dates.map((d, index) => {

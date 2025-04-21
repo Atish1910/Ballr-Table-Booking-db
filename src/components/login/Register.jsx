@@ -21,7 +21,7 @@ function Register() {
 
     console.log("Registering user:", newUser); // ✅ for debugging
 
-    try {
+    try { // https://ballr-mern-ashish.onrender.com
       const response = await axios.post("https://ballr-mern-ashish.onrender.com/register",newUser);
 
       if (response.status === 201 || response.status === 200) {

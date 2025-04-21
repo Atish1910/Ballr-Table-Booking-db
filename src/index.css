@@ -1,78 +1,9 @@
 @import url(https://fonts.googleapis.com/css2?family=Lato:ital,wght@0,100;0,300;0,400;0,700;0,900;1,100;1,300;1,400;1,700;1,900&display=swap);
 @import url(https://fonts.googleapis.com/css2?family=Lato:ital,wght@0,100;0,300;0,400;0,700;0,900;1,100;1,300;1,400;1,700;1,900&family=Playfair+Display:ital,wght@0,400..900;1,400..900&display=swap);
 
-.data span,
-.data_01 p,
-.txtbullet li {
-  font-size: 12px
-}
-
-.roboto-medium {
-  font-family: Roboto, sans-serif;
-  font-weight: 500;
-  font-style: normal
-}
-
-.lato-black,
-.lato-bold,
-.lato-light,
-.lato-regular,
-.lato-thin {
-  font-family: Lato, sans-serif;
-  font-style: normal
-}
-
-.lato-thin {
-  font-weight: 100
-}
-
-.lato-light {
-  font-weight: 300
-}
-
-.lato-regular {
-  font-weight: 400
-}
-
-.lato-bold {
-  font-weight: 700
-}
-
-.lato-black {
-  font-weight: 900
-}
-
-.lato-black-italic,
-.lato-bold-italic,
-.lato-light-italic,
-.lato-regular-italic,
-.lato-thin-italic {
-  font-family: Lato, sans-serif;
-  font-style: italic
-}
-
-.lato-thin-italic {
-  font-weight: 100
-}
-
-.lato-light-italic {
-  font-weight: 300
-}
-
-.lato-regular-italic {
-  font-weight: 400
-}
-
-.lato-bold-italic {
-  font-weight: 700
-}
-
-.lato-black-italic {
-  font-weight: 900
-}
 
 :root {
-  --orange: #ffc107;
+  --gold: #be7e2c;
   --blue: #13507F;
   --light: #F3F2F4;
   --dark: #1c1c1c;
@@ -83,9 +14,6 @@
   --roboto: "Lato", sans-serif
 }
 
-.accordion-item {
-  border: unset !important
-}
 
 body {
   font-size: 14px;
@@ -110,53 +38,6 @@ h6 {
   font-family: var(--hfont)
 }
 
-.hero-text,
-.subtitle,
-.title,
-.title_01 {
-  font-family: var(--headfont)
-}
-
-.copyright a:hover,
-.text-blue {
-  color: var(--blue) !important
-}
-
-.hero-text,
-.text-orange,
-.view-more-btn:hover {
-  color: var(--orange)
-}
-
-.bg-orange,
-.bg_grad_01,
-.your_path .border {
-  background-color: var(--orange)
-}
-
-.border-bottom_01 {
-  border-bottom: unset
-}
-
-.hero-text {
-  font-weight: 400;
-  font-size: 24px
-}
-
-.hero-text_02 {
-  font-size: 34px
-}
-
-.title,
-.title_01 {
-  font-size: 24px
-}
-
-.subtitle {
-  line-height: 1.5em;
-  font-size: 14px
-}
-
 .bg-dark {
   background: var(--dark) !important
 }
@@ -164,6 +45,13 @@ h6 {
 .bg-grey {
   background: var(--grey) !important
 }
+.bg-gold {
+  background: var(--gold) !important
+}
+.text-gold {
+  color: var(--gold) !important
+}
+
 
 .bg_testimonals,
 .hero-img {
@@ -208,7 +96,7 @@ h6 {
 }
 
 .data img {
-  border: solid 1px var(--orange);
+  border: solid 1px var(--gold);
   border-radius: 50%;
   display: flex;
   justify-content: center;
@@ -219,7 +107,7 @@ h6 {
 
 .data_01 {
   border-radius: 0 0 25px 25px;
-  border: solid 1px var(--orange)
+  border: solid 1px var(--gold)
 }
 
 .zoho_form {
@@ -229,7 +117,7 @@ h6 {
 
 .h_partner {
   border-radius: unset;
-  background-color: var(--orange)
+  background-color: var(--gold)
 }
 
 .h_partner.h_part_apply {
@@ -260,7 +148,7 @@ h6 {
   font-weight: 500
 }
 
-.bg-orange-gradient {
+.bg-gold-gradient {
   background-image: linear-gradient(180deg, #47143d 0, #632156 100%)
 }
 
@@ -448,11 +336,11 @@ h6 {
   width: 100%
 }
 
-.border-orange {
-  border: 1px solid var(--orange)
+.border-gold {
+  border: 1px solid var(--gold)
 }
 
-.border-orange_01 {
+.border-gold_01 {
   border-top: 1px solid var(--light);
   border-bottom: 1px solid var(--light)
 }
@@ -560,8 +448,8 @@ h6 {
 }
 
 .c_btn {
-  background-color: var(--orange);
-  border: solid 1px var(--orange);
+  background-color: var(--gold);
+  border: solid 1px var(--gold);
   color: var(--dark);
   font-size: 14px
 }
@@ -611,7 +499,7 @@ h6 {
 }
 
 .program_02 .accordion-button {
-  background-color: var(--orange);
+  background-color: var(--gold);
   color: #fff;
   border-radius: 15px !important
 }
@@ -799,7 +687,7 @@ span.brownTriangle {
 
 .form_bg_01 {
   border-radius: 0 0 25px 25px;
-  border: solid 2px var(--orange)
+  border: solid 2px var(--gold)
 }
 
 .back-to-top {
@@ -807,7 +695,7 @@ span.brownTriangle {
   justify-content: center;
   align-items: center;
   border: solid 1px var(--grey);
-  background-color: var(--orange) !important;
+  background-color: var(--gold) !important;
   color: var(--bs-white) !important
 }
 
@@ -886,8 +774,8 @@ span.brownTriangle {
     transform-origin: right;
     border-radius: 0 0 7px 7px !important;
     color: #000;
-    background-color: var(--orange);
-    border: solid 1px var(--orange)
+    background-color: var(--gold);
+    border: solid 1px var(--gold)
   }
 
   .hero_logo_01 {
@@ -911,7 +799,7 @@ span.brownTriangle {
   }
 
   .border-end_01:not(:last-child) {
-    border-right: 1px solid var(--orange)
+    border-right: 1px solid var(--gold)
   }
 
   .testimonals_02 {
@@ -921,7 +809,7 @@ span.brownTriangle {
 
   .form_bg_01 {
     border-radius: 0 25px 25px 0;
-    border: solid 2px var(--orange)
+    border: solid 2px var(--gold)
   }
 
   .border_01:not(:last-child) {
@@ -1189,6 +1077,8 @@ span.brownTriangle {
 }
 
 
+
+/* /////////////////// */
 .input-errors{
   border: 1px solid red !important;
 }
@@ -1207,15 +1097,15 @@ span.brownTriangle {
 
 .navbar_01 .active-link{
   color: var(--bs-white);
-  background-color: #be7e2c;
-  border: solid 1px #be7e2c;
+  background-color: var(--gold);
+  border: solid 1px var(--gold);
 }
 .navbar_01 img{
   height: 50px;
   /* width: 100px; */
 }
 .login_01{
-  background-color: #be7e2c;
+  background-color: var(--gold);
   height: 100vh;
   display: flex;
   justify-content: center;
@@ -1232,4 +1122,41 @@ span.brownTriangle {
     height: 35px;
     /* width: 100px; */
   }
+}
+
+
+/* /////////////////////////////// */
+.rounded-04{
+  border-radius: 0px 0px 30px 30px;
+}
+.border{
+  border: solid var(--gold) 1px !important;
+}
+.sold-btn{
+  background-color: var(--gold) !important;
+  color: white !important;
+  font-size: 8px !important;
+}
+.book-btn{
+  background-color: white !important;
+  border: dark solid 1px !important;
+}
+.book-btn-02{
+  background-color: var(--gold) !important;
+  color: white !important;
+  border: dark solid 1px !important;
+}
+.console-01{
+  border-radius: 50px;
+}
+.console-01 .inner-01{
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+.console-01 .inner-02{
+  rotate: 90deg;
+}
+.rotate-90deg{
+  rotate: 270deg;
 }
