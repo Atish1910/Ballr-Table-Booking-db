@@ -16,7 +16,7 @@
 
 
 body {
-  font-size: 14px;
+  font-size: 10px !important;
   font-family: var(--roboto);
   color: var(--dark);
   background-color: var(--grey);
@@ -1113,17 +1113,6 @@ span.brownTriangle {
 }
 
 
-/* ///////////// */
-@media (max-width:992px) {
-  .btn{
-    font-size: 10px !important;
-  }
-  .navbar_01 img{
-    height: 35px;
-    /* width: 100px; */
-  }
-}
-
 
 /* /////////////////////////////// */
 .rounded-04{
@@ -1135,7 +1124,7 @@ span.brownTriangle {
 .sold-btn{
   background-color: var(--gold) !important;
   color: white !important;
-  font-size: 8px !important;
+  font-size: 7px !important;
 }
 .book-btn{
   background-color: white !important;
@@ -1159,4 +1148,40 @@ span.brownTriangle {
 }
 .rotate-90deg{
   rotate: 270deg;
+}
+.sectiontwo .border{
+  border: solid var(--gold) 1px !important;
+}
+.sectiontwo{
+  border: solid var(--gold) 1px !important;
+  border-radius: 0px 0px 40px 40px !important; 
+}
+@media (max-width:992px) {
+  h6{
+    font-size: 10px !important;
+  }
+  .book-btn{
+    font-size: 8px !important;
+    background-color: white !important;
+    border: dark solid 1px !important;
+  }
+  .col-20{
+    width: 20% !important;
+    display: flex;
+    justify-content: center;
+    align-items: baseline;
+  }
+  .col-25{
+    width: 25% !important;
+    display: flex;
+    justify-content: center;
+    align-items: baseline;
+  }
+  .btn{
+    font-size: 8px !important;
+  }
+  .navbar_01 img{
+    height: 35px;
+    /* width: 100px; */
+  }
 }

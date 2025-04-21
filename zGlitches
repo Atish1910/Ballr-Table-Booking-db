@@ -1,0 +1,19 @@
+Front End Glitches 
+01 : Logout Button is not working Properly
+02 : if user deactivate user user cant be logged in always check from DB user isActive field is true or false if its false user cant be loggedin
+03 : Currently if user refresh page after loggedin in mobile page not working , user need to redirect again on page then it will display
+
+Front End Formatting Properly As Per Component
+-> each section component is diffrent  There should be 7 Components
+SectionOne.jsx => Console Section :  6Tables (D1 to D6)
+SectionTwo.jsx => Expensive VIP Section :  12Tables (t1 To t4, E1 to E8)
+SectionThree.jsx => Top Right T Sectiom :  6Tables (T1 to T6)
+SectionFour.jsx => Top Left S Sectiom :  6Tables (S1 to S6)
+SectionFive.jsx => SD Lounge K Section : 10Tables (S7 To S10, K1 to K4, k5 & k6)
+SectionSix.jsx => Floor Left Section (f19 to f31) 
+SectionSeven.jsx => Floor Right Section (f1 to f18)
+
+
+Front End Feature Needs To Add
+01 : There Should be max 2 Admin in loggedin not more than that after if user try to Register as admin it cant
+02 : Forget Password functanility need to add

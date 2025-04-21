@@ -11,8 +11,16 @@ import {
 } from "react-hook-form";
 import axios from "axios";
 import toast from "react-hot-toast";
+import SectionOne from "./SectionOne";
+import SectionTwo from "./SectionTwo";
+import SectionThree from "./SectionThree";
+import SectionFour from "./SectionFour";
+import SectionTwoE from "./SectionTwoE";
+import SectionTwoE2 from "./SectionTwoE2";
 
 function Console() {
+  
+  // const url = process.env.REACT_BASE_URL;
   const {
     date
   } = useParams();
@@ -43,7 +51,7 @@ function Console() {
 
   const fetchBookings = async () => {
     try {
-      const res = await axios.get("https://ballr-mern-ashish.onrender.com/getallbookings");
+      const res = await axios.get(`https://ballr-mern-ashish.onrender.com/getallbookings`);
       // Filter bookings matching the URL date (bookedDate field)
       const formattedUrlDate = convertDateFormat(date);
 
@@ -80,7 +88,7 @@ function Console() {
     };
 
     try {
-      const response = await axios.post("https://ballr-mern-ashish.onrender.com/create-booking", bookedTables);
+      const response = await axios.post(`https://ballr-mern-ashish.onrender.com/create-booking`, bookedTables);
 
       if (response.data.success) {
         toast.success("Booking successful!");
@@ -121,156 +129,42 @@ function Console() {
     }
   };
 
-  const consoleTables = ["D1", "D2", "D3", "D4", "D5", "D6"]; // 01
-  const barRightT = ["T1", "T2","T3","T4","T5","T6"];
-  const barLeftS = ["S1", "S2","S3","S4","S5","S6"]
-  const expensiveTopT = ["T1", "T2","T3","T4"];
-  const expensiveTopE1 = ["E1", "E2","E3","E4"];
-  const expensiveTopE2 = ["E5","E6","E7","E8"];
+  const sectionOne = ["D1", "D2", "D3", "D4", "D5", "D6"];
+  const sectionTwo = ["T7", "T8","T9","T10"];
+  const sectionThree =  ["T1", "T2","T3","T4","T5","T6"];
+  const sectionFour = ["S1", "S2","S3","S4","S5","S6"]
 
   return (
 <>
   <section className="section-01 border border-dark position-relative">
     <div className="container  py-5">
       <div className="row py-5 border justify-content-center align-items-center">
-        {/* //////////////////////////////////////////////////////////////////////////////////// */}
-        {/* //////////////////////////////////////////////////////////////////////////////////// */}
-        {/* (T) Bar Right Section Started */}
-        <div className="col-2">
-          <div className="row text-end bg-gold py-5 rounded-3">
-            {barRightT.map((table) => {
-            // Check if table is already booked in bookings list
-            const isBooked = bookings.find((booking) => booking.tableNo === table);
-            return (
-            <div key={table} className="border-dark py-3">
-              {isBooked ? (
-              <button className="btn sold-btn" disabled>Sold : {table}<br />{isBooked.prName.split(" ")[0]}</button>
-              ) : (
-              <button type="button" className="btn book-btn" data-bs-toggle="modal" data-bs-target="#bookingModal"
-                data-table={table} onClick={handleTableClick}>{table}</button>
-              )}
-            </div>
-            );
-            })}
-          </div>
-          <div className="row py-5">
-            <div className="rotate-90deg">
+        <div className="col-2 col-lg-2">
+          <SectionThree bookings={bookings} handleTableClick={handleTableClick} sectionArray={sectionThree} />
+          <div className="row py-5 text-center">
+            <div className="">
               <h3 className="text-gold">BAR</h3>
             </div>
           </div>
-          {/* (S) Bar Left Section Started */}
-          <div className="row text-end bg-gold rounded-3 py-5">
-            {barLeftS.map((table) => {
-            // Check if table is already booked in bookings list
-            const isBooked = bookings.find((booking) => booking.tableNo === table);
-            return (
-            <div key={table} className="border-dark py-3">
-              {isBooked ? (
-              <button className="btn sold-btn" disabled>Sold : {table}<br />{isBooked.prName.split(" ")[0]}</button>
-              ) : (
-              <button type="button" className="btn book-btn" data-bs-toggle="modal" data-bs-target="#bookingModal"
-                data-table={table} onClick={handleTableClick}>{table}</button>
-              )}
-            </div>
-            );
-            })}
+          <SectionFour bookings={bookings} handleTableClick={handleTableClick} sectionArray={sectionFour}  />
+          
+        </div>
+        <div className="col-7  col-lg-8 border">
+        <div className="row align-items-center">
+          <div className="col-10">
+            <SectionTwo bookings={bookings} handleTableClick={handleTableClick} sectionArray={sectionTwo} />
+            <SectionTwoE bookings={bookings} handleTableClick={handleTableClick}></SectionTwoE>
+            <SectionTwoE2 bookings={bookings} handleTableClick={handleTableClick}> </SectionTwoE2>
+          </div>
+          <div className="col-2 text-center">
+            <h6 className="text-gold">Entry Gate Of Ballr</h6>
+            <i className=""></i>
           </div>
         </div>
-        {/* //////////////////////////////////////////////////////////////////////////////////// */}
-        {/* //////////////////////////////////////////////////////////////////////////////////// */}
-        <div className="col-8 py-5 border">
-          <div className="row">
-            <div className="col-9">
-              {/* //////////////////////////////////////////////////////////////////////////////////// */}
-              <div className="row text-center pt-4  border rounded-3">
-                <h3 className="text-center fw-bold ">Expensive VIP Section</h3>
-                {expensiveTopT.map((table) => {
-                // Check if table is already booked in bookings list
-                const isBooked = bookings.find((booking) => booking.tableNo === table);
-                return (
-                <div key={table} className="col border-dark py-3">
-                  {isBooked ? (
-                  <button className="btn sold-btn" disabled>Sold : {table}<br />{isBooked.prName.split(" ")[0]}</button>
-                  ) : (
-                  <button type="button" className="btn book-btn-02" data-bs-toggle="modal"
-                    data-bs-target="#bookingModal" data-table={table} onClick={handleTableClick}>{table}</button>
-                  )}
-                </div>
-                );
-                })}
-              </div>
-              {/* //////////////////////////////////////////////////////////////////////////////////// */}
-              <div className="row  text-center bg-gold border rounded-3 pt-3 pb-5">
-                {expensiveTopE1.map((table) => {
-                // Check if table is already booked in bookings list
-                const isBooked = bookings.find((booking) => booking.tableNo === table);
-                return (
-                <div key={table} className="col-3 border-dark py-3">
-                  {isBooked ? (
-                  <button className="btn sold-btn" disabled>Sold : {table}<br />{isBooked.prName.split(" ")[0]}</button>
-                  ) : (
-                  <button type="button" className="btn book-btn" data-bs-toggle="modal" data-bs-target="#bookingModal"
-                    data-table={table} onClick={handleTableClick}>{table}</button>
-                  )}
-                </div>
-                );
-                })}
-              </div>
-              <div className="row  text-center pb-4 border rounded-04">
-                {expensiveTopE2.map((table) => {
-                // Check if table is already booked in bookings list
-                const isBooked = bookings.find((booking) => booking.tableNo === table);
-                return (
-                <div key={table} className="col-3 border-dark py-3">
-                  {isBooked ? (
-                  <button className="btn sold-btn" disabled>Sold : {table}<br />{isBooked.prName.split(" ")[0]}</button>
-                  ) : (
-                  <button type="button" className="btn book-btn-02" data-bs-toggle="modal"
-                    data-bs-target="#bookingModal" data-table={table} onClick={handleTableClick}>{table}</button>
-                  )}
-                </div>
-                );
-                })}
-              </div>
-              {/* //////////////////////////////////////////////////////////////////////////////////// */}
-            </div>
-            <div className="col-3 text-center">
-              <h4 className="text-gold">Entry Gate Of Ballr</h4>
-              <i className=""></i>
-            </div>
-          </div>
         </div>
-        {/* //////////////////////////////////////////////////////////////////////////////////// */}
-        {/* //////////////////////////////////////////////////////////////////////////////////// */}
-        {/* Console Section STarted 01 */}
-        <div className="col-2">
-          <div className="row text-end bg-gold py-5 console-01">
-            <div className="col-6 inner-01">
-              <div className="inner-02">
-
-                <h3 className="text-center fw-bold bg-white text-gold border rounded-3 px-3">Console </h3>
-              </div>
-            </div>
-            <div className="col-6">
-              {consoleTables.map((table) => {
-              // Check if table is already booked in bookings list
-              const isBooked = bookings.find((booking) => booking.tableNo === table);
-              return (
-              <div key={table} className="border-dark py-3">
-                {isBooked ? (
-                <button className="btn sold-btn" disabled>Sold : {table}<br />{isBooked.prName.split(" ")[0]}</button>
-                ) : (
-                <button type="button" className="btn book-btn" data-bs-toggle="modal" data-bs-target="#bookingModal"
-                  data-table={table} onClick={handleTableClick}>{table}</button>
-                )}
-              </div>
-              );
-              })}
-            </div>
-          </div>
+        <div className="col-3  col-lg-2">
+            <SectionOne bookings={bookings} handleTableClick={handleTableClick} sectionArray={sectionOne}/>
         </div>
-        {/* //////////////////////////////////////////////////////////////////////////////////// */}
-        {/* //////////////////////////////////////////////////////////////////////////////////// */}
       </div>
 
 
@@ -311,7 +205,7 @@ function Console() {
 
   {/* Booking Details Start */}
   <section>
-    <div className="container-fluid mt-5 table-responsive ">
+    <div className="container mt-5 table-responsive px-4 ">
       <h3 className="text-center">Booking Details</h3>
       <table className="table table-bordered text-center table-responsive ">
         <thead>
