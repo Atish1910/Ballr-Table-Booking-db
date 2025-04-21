@@ -1122,9 +1122,8 @@ span.brownTriangle {
   border: solid var(--gold) 1px !important;
 }
 .sold-btn{
-  background-color: var(--gold) !important;
+  font-size: 9px !important;
   color: white !important;
-  font-size: 7px !important;
 }
 .book-btn{
   background-color: white !important;
@@ -1149,6 +1148,16 @@ span.brownTriangle {
 .rotate-90deg{
   rotate: 270deg;
 }
+.SectionFiveK1{
+  border: solid var(--gold) 1px !important;
+  border-radius: 40px 40px 0px 0px !important;
+}
+.SectionFivek2{
+  border-radius: 40px 40px 0px 0px !important;
+  border-top: solid  1px var(--gold) !important;
+  border-right: solid  1px var(--gold) !important;
+  border-left: solid 1px var(--gold) !important;
+}
 .sectiontwo .border{
   border: solid var(--gold) 1px !important;
 }
@@ -1161,7 +1170,7 @@ span.brownTriangle {
     font-size: 10px !important;
   }
   .book-btn{
-    font-size: 8px !important;
+    font-size: 6px !important;
     background-color: white !important;
     border: dark solid 1px !important;
   }
@@ -1178,10 +1187,21 @@ span.brownTriangle {
     align-items: baseline;
   }
   .btn{
-    font-size: 8px !important;
+    font-size: 6px !important;
   }
   .navbar_01 img{
     height: 35px;
     /* width: 100px; */
   }
+  .sold-btn{
+    background-color: var(--gold) !important;
+    color: white !important;
+    font-size: 7px !important;
+  }
+  .sold-btn{
+    font-size: 7px !important;
+  }
+}
+.middle-section{
+  height: 250px ;
 }

@@ -1,7 +1,7 @@
 function SectionTwo({ bookings, handleTableClick, sectionArray }) {
 return (
   <>  
-    <div className="row text-center pt-4  border rounded-3">
+    <div className="row text-center pt-lg-4 pt-2  border rounded-3">
       <h6 className="text-center fw-bold ">Expensive VIP Section</h6>
       {sectionArray.map((table) => {
       // Check if table is already booked in bookings list

@@ -4,7 +4,7 @@ function SectionThree({ bookings, handleTableClick, sectionArray }) {
       {sectionArray.map((table) => {
         const isBooked = bookings.find((booking) => booking.tableNo === table);
         return (
-          <div key={table} className="border-dark py-3">
+          <div key={table} className="border-dark pb-3">
             {isBooked ? (
               <button className="btn sold-btn" disabled>
                 Sold : {table}<br />{isBooked.prName.split(" ")[0]}

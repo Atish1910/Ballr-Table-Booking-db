@@ -17,6 +17,9 @@ import SectionThree from "./SectionThree";
 import SectionFour from "./SectionFour";
 import SectionTwoE from "./SectionTwoE";
 import SectionTwoE2 from "./SectionTwoE2";
+import SectionFiveS from "./SectionFiveS";
+import SectionFiveK1 from "./SectionFiveK1";
+import SectionFiveK2 from "./SectionFiveK2";
 
 function Console() {
   
@@ -132,7 +135,8 @@ function Console() {
   const sectionOne = ["D1", "D2", "D3", "D4", "D5", "D6"];
   const sectionTwo = ["T7", "T8","T9","T10"];
   const sectionThree =  ["T1", "T2","T3","T4","T5","T6"];
-  const sectionFour = ["S1", "S2","S3","S4","S5","S6"]
+  const sectionFour = ["S1", "S2","S3","S4","S5","S6"];
+  const sectionFiveS = ["S7","S8","S9","S10"];
 
   return (
 <>
@@ -146,24 +150,30 @@ function Console() {
               <h3 className="text-gold">BAR</h3>
             </div>
           </div>
-          <SectionFour bookings={bookings} handleTableClick={handleTableClick} sectionArray={sectionFour}  />
-          
+          <SectionFour bookings={bookings} handleTableClick={handleTableClick} sectionArray={sectionFour} />
+
         </div>
         <div className="col-7  col-lg-8 border">
-        <div className="row align-items-center">
-          <div className="col-10">
-            <SectionTwo bookings={bookings} handleTableClick={handleTableClick} sectionArray={sectionTwo} />
-            <SectionTwoE bookings={bookings} handleTableClick={handleTableClick}></SectionTwoE>
-            <SectionTwoE2 bookings={bookings} handleTableClick={handleTableClick}> </SectionTwoE2>
+          <div className="row align-items-center">
+            <div className="col-10">
+              <SectionTwo bookings={bookings} handleTableClick={handleTableClick} sectionArray={sectionTwo} />
+              <SectionTwoE bookings={bookings} handleTableClick={handleTableClick}></SectionTwoE>
+              <SectionTwoE2 bookings={bookings} handleTableClick={handleTableClick}> </SectionTwoE2>
+            </div>
+            <div className="col-2 text-center">
+              <h6 className="text-gold">Entry Gate Of Ballr</h6>
+              <i className=""></i>
+            </div>
           </div>
-          <div className="col-2 text-center">
-            <h6 className="text-gold">Entry Gate Of Ballr</h6>
-            <i className=""></i>
+          <div className="row middle-section" ></div>
+          <div className="row">
+            <SectionFiveK2 bookings={bookings} handleSubmit={handleTableClick} ></SectionFiveK2>
+            <SectionFiveK1 bookings={bookings} handleSubmit={handleTableClick} ></SectionFiveK1>
+            <SectionFiveS bookings={bookings} handleSubmit={handleTableClick} sectionArray={sectionFiveS} ></SectionFiveS>
           </div>
-        </div>
         </div>
         <div className="col-3  col-lg-2">
-            <SectionOne bookings={bookings} handleTableClick={handleTableClick} sectionArray={sectionOne}/>
+          <SectionOne bookings={bookings} handleTableClick={handleTableClick} sectionArray={sectionOne} />
         </div>
       </div>
 

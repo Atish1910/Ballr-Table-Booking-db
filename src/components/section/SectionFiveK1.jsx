@@ -1,13 +1,13 @@
-function SectionTwoE({ bookings, handleTableClick}){
-  const tables = ["E1", "E2", "E3", "E4"];
+function SectionFiveK1({ bookings, handleTableClick}){
+  const tables = ["K1", "K2", "K3", "K4"];
 
   return (
-        <div className="row text-center border rounded-3 bg-gold pt-lg-3 pb-lg-5">
+        <div className="row text-center bg-gold pt-lg-3 pb-lg-5 SectionFiveK1">
           {/* Buttons */}
-          <div className="col col-20  border-dark py-3">
-            {bookings.find((b) => b.tableNo === "E1") ? (
+          <div className="col col-20  border-dark py-4">
+            {bookings.find((b) => b.tableNo === "K1") ? (
               <button className="btn sold-btn" disabled>
-                Sold : E1<br />{bookings.find((b) => b.tableNo === "E1").prName.split(" ")[0]}
+                Sold : K1<br />{bookings.find((b) => b.tableNo === "K1").prName.split(" ")[0]}
               </button>
             ) : (
               <button
@@ -15,18 +15,18 @@ function SectionTwoE({ bookings, handleTableClick}){
                 className="btn book-btn"
                 data-bs-toggle="modal"
                 data-bs-target="#bookingModal"
-                data-table="E1"
+                data-table="K1"
                 onClick={handleTableClick}
               >
-                E1
+                K1
               </button>
             )}
           </div>
 
-          <div className="col col-20  border-dark py-3">
-            {bookings.find((b) => b.tableNo === "E2") ? (
+          <div className="col col-20  border-dark py-4">
+            {bookings.find((b) => b.tableNo === "K2") ? (
               <button className="btn sold-btn" disabled>
-                Sold : E2<br />{bookings.find((b) => b.tableNo === "E2").prName.split(" ")[0]}
+                Sold : K2<br />{bookings.find((b) => b.tableNo === "K2").prName.split(" ")[0]}
               </button>
             ) : (
               <button
@@ -34,23 +34,19 @@ function SectionTwoE({ bookings, handleTableClick}){
                 className="btn book-btn"
                 data-bs-toggle="modal"
                 data-bs-target="#bookingModal"
-                data-table="E2"
+                data-table="K2"
                 onClick={handleTableClick}
               >
-                E2
+                K2
               </button>
             )}
           </div>
-          <div className="col col-20 ">
-          <p className="border pt-1 mt-3"></p>
-            <p className="border pt-1"></p>
-            <p className="border pt-1 d-none d-lg-block"></p>
-          </div>
+          <div className="col col-20  py-4 border"></div>
 
-          <div className="col col-20 py-3">
-            {bookings.find((b) => b.tableNo === "E3") ? (
+          <div className="col col-20 py-4">
+            {bookings.find((b) => b.tableNo === "K3") ? (
               <button className="btn sold-btn" disabled>
-                Sold : E3<br />{bookings.find((b) => b.tableNo === "E3").prName.split(" ")[0]}
+                Sold : K3<br />{bookings.find((b) => b.tableNo === "K3").prName.split(" ")[0]}
               </button>
             ) : (
               <button
@@ -58,18 +54,18 @@ function SectionTwoE({ bookings, handleTableClick}){
                 className="btn book-btn"
                 data-bs-toggle="modal"
                 data-bs-target="#bookingModal"
-                data-table="E3"
+                data-table="K3"
                 onClick={handleTableClick}
               >
-                E3
+                K3
               </button>
             )}
           </div>
 
-          <div className="col col-20  border-dark py-3">
-            {bookings.find((b) => b.tableNo === "E4") ? (
+          <div className="col col-20  border-dark py-4">
+            {bookings.find((b) => b.tableNo === "K4") ? (
               <button className="btn sold-btn" disabled>
-                Sold : E4<br />{bookings.find((b) => b.tableNo === "E4").prName.split(" ")[0]}
+                Sold : K4<br />{bookings.find((b) => b.tableNo === "K4").prName.split(" ")[0]}
               </button>
             ) : (
               <button
@@ -77,10 +73,10 @@ function SectionTwoE({ bookings, handleTableClick}){
                 className="btn book-btn"
                 data-bs-toggle="modal"
                 data-bs-target="#bookingModal"
-                data-table="E4"
+                data-table="K4"
                 onClick={handleTableClick}
               >
-                E4
+                K4
               </button>
             )}
           </div>
@@ -88,4 +84,4 @@ function SectionTwoE({ bookings, handleTableClick}){
         </div>
   );
 }
-export default SectionTwoE
+export default SectionFiveK1;
