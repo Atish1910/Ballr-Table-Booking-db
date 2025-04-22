@@ -1181,7 +1181,22 @@ span.brownTriangle {
 .middle-section{
   height: 250px ;
 }
+.entry-gate{
+  position: absolute;
+  top: 32px;
+  rotate: 90deg;
+  padding: 10px;
+}
+.entry-gate {
+  position: absolute;
+  top: 85px;
+  right: 0;
+}
 @media (max-width:992px) {
+  .entry-gate{
+    position: absolute;
+    top: 32px;
+  }
   h6{
     font-size: 10px !important;
   }

@@ -142,7 +142,7 @@ function Console() {
 <>
   <section className="section-01 border border-dark position-relative">
     <div className="container  py-5">
-      <div className="row py-5 border justify-content-center align-items-center">
+      <div className="row border justify-content-center align-items-center position-relative">
         <div className="col-2 col-lg-2">
           <SectionThree bookings={bookings} handleTableClick={handleTableClick} sectionArray={sectionThree} />
           <div className="row py-5 text-center">
@@ -154,16 +154,13 @@ function Console() {
 
         </div>
         <div className="col-7  col-lg-8 border">
-          <div className="row align-items-center">
-            <div className="col-10">
+          <div className="row">
+            <div className="col-11">
               <SectionTwo bookings={bookings} handleTableClick={handleTableClick}/>
               <SectionTwoE bookings={bookings} handleTableClick={handleTableClick}></SectionTwoE>
               <SectionTwoE2 bookings={bookings} handleTableClick={handleTableClick}> </SectionTwoE2>
             </div>
-            <div className="col-2 text-center">
-              <h6 className="text-gold">Entry Gate Of Ballr</h6>
-              <i className=""></i>
-            </div>
+            
           </div>
           <div className="row middle-section" ></div>
           <div className="row">
@@ -173,6 +170,11 @@ function Console() {
           </div>
         </div>
         <div className="col-3  col-lg-2">
+        <div className=" text-center border entry-gate">
+            <i class="bi bi-door-open-fill  text-gold h6"></i>
+              <h6 className="text-gold">Entry Gate Of Ballr</h6>
+              <i class="bi bi-arrow-return-right text-gold h6"></i>
+            </div>
           <SectionOne bookings={bookings} handleTableClick={handleTableClick} sectionArray={sectionOne} />
         </div>
       </div>
