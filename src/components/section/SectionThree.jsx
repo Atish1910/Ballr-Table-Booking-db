@@ -2,7 +2,7 @@ function SectionThree({ bookings, handleTableClick }) {
   const sectionThree =  ["T6", "T5","T4","T3","T2","T1"];
   return (
     <div className="row text-end bg-gold py-5 rounded-3">
-      {sectionArray.map((table) => {
+      {sectionThree.map((table) => {
         const isBooked = bookings.find((booking) => booking.tableNo === table);
         return (
           <div key={table} className="border-dark pb-3">
