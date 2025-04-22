@@ -141,7 +141,6 @@ function Console() {
 
   const sectionOne = ["D1", "D2", "D3", "D4", "D5", "D6"];
   // const sectionTwo = ["T7", "T8","T9","T10"];
-  const sectionThree =  ["T1", "T2","T3","T4","T5","T6"];
   const sectionFour = ["S1", "S2","S3","S4","S5","S6"];
   const sectionFiveS = ["S7","S8","S9","S10"];
 
@@ -151,7 +150,7 @@ function Console() {
     <div className="container  py-5">
       <div className="row border justify-content-center align-items-center position-relative">
         <div className="col-2 col-lg-2">
-          <SectionThree bookings={bookings} handleTableClick={handleTableClick} sectionArray={sectionThree} />
+          <SectionThree bookings={bookings} handleTableClick={handleTableClick} />
           <div className="row py-5 text-center">
             <div className="">
               <h3 className="text-gold">BAR</h3>
