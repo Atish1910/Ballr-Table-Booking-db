@@ -2,17 +2,15 @@ function SectionFiveK2({ bookings, handleTableClick}){
   const tables = ["K5", "K6"];
 
   return (
-        <div className="row text-center pt-lg-3 pb-lg-5 align-items-center SectionFivek2">
+        <div className="row text-center pt-lg-3 pb-lg-5 align-items-center SectionFivek2 m-auto">
           {/* Buttons */}
           <div className="col-4  border-dark">
             {bookings.find((b) => b.tableNo === "k5") ? (
-              <button className="btn sold-btn" disabled>
-                Sold : k5<br />{bookings.find((b) => b.tableNo === "k5").prName.split(" ")[0]}
-              </button>
+              <button className="btn sold-btn" disabled>k5</button>
             ) : (
               <button
                 type="button"
-                className="btn book-btn-02"
+                className="btn book-btn"
                 data-bs-toggle="modal"
                 data-bs-target="#bookingModal"
                 data-table="k5"
@@ -30,13 +28,11 @@ function SectionFiveK2({ bookings, handleTableClick}){
 
           <div className="col-4  border-dark">
             {bookings.find((b) => b.tableNo === "k6") ? (
-              <button className="btn sold-btn" disabled>
-                Sold : k6<br />{bookings.find((b) => b.tableNo === "k6").prName.split(" ")[0]}
-              </button>
+              <button className="btn sold-btn" disabled>k6</button>
             ) : (
               <button
                 type="button"
-                className="btn book-btn-02"
+                className="btn book-btn"
                 data-bs-toggle="modal"
                 data-bs-target="#bookingModal"
                 data-table="k6"

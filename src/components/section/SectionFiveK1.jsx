@@ -2,13 +2,11 @@ function SectionFiveK1({ bookings, handleTableClick}){
   const tables = ["K1", "K2", "K3", "K4"];
 
   return (
-        <div className="row text-center bg-gold pt-lg-3 pb-lg-5 SectionFiveK1">
+        <div className="row text-center bg-gold pt-lg-3 pb-lg-5 SectionFiveK1 m-auto">
           {/* Buttons */}
           <div className="col col-20  border-dark py-4">
             {bookings.find((b) => b.tableNo === "K1") ? (
-              <button className="btn sold-btn" disabled>
-                Sold : K1<br />{bookings.find((b) => b.tableNo === "K1").prName.split(" ")[0]}
-              </button>
+              <button className="btn sold-btn" disabled>K1</button>
             ) : (
               <button
                 type="button"
@@ -25,9 +23,7 @@ function SectionFiveK1({ bookings, handleTableClick}){
 
           <div className="col col-20  border-dark py-4">
             {bookings.find((b) => b.tableNo === "K2") ? (
-              <button className="btn sold-btn" disabled>
-                Sold : K2<br />{bookings.find((b) => b.tableNo === "K2").prName.split(" ")[0]}
-              </button>
+              <button className="btn sold-btn" disabled>K2</button>
             ) : (
               <button
                 type="button"
@@ -45,9 +41,7 @@ function SectionFiveK1({ bookings, handleTableClick}){
 
           <div className="col col-20 py-4">
             {bookings.find((b) => b.tableNo === "K3") ? (
-              <button className="btn sold-btn" disabled>
-                Sold : K3<br />{bookings.find((b) => b.tableNo === "K3").prName.split(" ")[0]}
-              </button>
+              <button className="btn sold-btn" disabled>K3</button>
             ) : (
               <button
                 type="button"
@@ -64,9 +58,7 @@ function SectionFiveK1({ bookings, handleTableClick}){
 
           <div className="col col-20  border-dark py-4">
             {bookings.find((b) => b.tableNo === "K4") ? (
-              <button className="btn sold-btn" disabled>
-                Sold : K4<br />{bookings.find((b) => b.tableNo === "K4").prName.split(" ")[0]}
-              </button>
+              <button className="btn sold-btn" disabled>K4</button>
             ) : (
               <button
                 type="button"

@@ -6,9 +6,7 @@ function SectionThree({ bookings, handleTableClick, sectionArray }) {
         return (
           <div key={table} className="border-dark pb-3">
             {isBooked ? (
-              <button className="btn sold-btn" disabled>
-                Sold : {table}<br />{isBooked.prName.split(" ")[0]}
-              </button>
+              <button className="btn sold-btn" disabled>{table}</button>
             ) : (
               <button
                 type="button"

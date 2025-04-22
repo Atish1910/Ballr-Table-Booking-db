@@ -13,10 +13,10 @@ import axios from "axios";
 import toast from "react-hot-toast";
 import SectionOne from "./SectionOne";
 import SectionTwo from "./SectionTwo";
-import SectionThree from "./SectionThree";
-import SectionFour from "./SectionFour";
 import SectionTwoE from "./SectionTwoE";
 import SectionTwoE2 from "./SectionTwoE2";
+import SectionThree from "./SectionThree";
+import SectionFour from "./SectionFour";
 import SectionFiveS from "./SectionFiveS";
 import SectionFiveK1 from "./SectionFiveK1";
 import SectionFiveK2 from "./SectionFiveK2";
@@ -133,7 +133,7 @@ function Console() {
   };
 
   const sectionOne = ["D1", "D2", "D3", "D4", "D5", "D6"];
-  const sectionTwo = ["T7", "T8","T9","T10"];
+  // const sectionTwo = ["T7", "T8","T9","T10"];
   const sectionThree =  ["T1", "T2","T3","T4","T5","T6"];
   const sectionFour = ["S1", "S2","S3","S4","S5","S6"];
   const sectionFiveS = ["S7","S8","S9","S10"];
@@ -156,7 +156,7 @@ function Console() {
         <div className="col-7  col-lg-8 border">
           <div className="row align-items-center">
             <div className="col-10">
-              <SectionTwo bookings={bookings} handleTableClick={handleTableClick} sectionArray={sectionTwo} />
+              <SectionTwo bookings={bookings} handleTableClick={handleTableClick}/>
               <SectionTwoE bookings={bookings} handleTableClick={handleTableClick}></SectionTwoE>
               <SectionTwoE2 bookings={bookings} handleTableClick={handleTableClick}> </SectionTwoE2>
             </div>
@@ -167,9 +167,9 @@ function Console() {
           </div>
           <div className="row middle-section" ></div>
           <div className="row">
-            <SectionFiveK2 bookings={bookings} handleSubmit={handleTableClick} ></SectionFiveK2>
-            <SectionFiveK1 bookings={bookings} handleSubmit={handleTableClick} ></SectionFiveK1>
-            <SectionFiveS bookings={bookings} handleSubmit={handleTableClick} sectionArray={sectionFiveS} ></SectionFiveS>
+            <SectionFiveK2 bookings={bookings} handleTableClick={handleTableClick}></SectionFiveK2>
+            <SectionFiveK1 bookings={bookings} handleTableClick={handleTableClick}></SectionFiveK1>
+            <SectionFiveS bookings={bookings} handleTableClick={handleTableClick}></SectionFiveS>
           </div>
         </div>
         <div className="col-3  col-lg-2">

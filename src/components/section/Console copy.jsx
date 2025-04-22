@@ -192,7 +192,7 @@ function Console() {
                   {isBooked ? (
                   <button className="btn sold-btn" disabled>Sold : {table}<br />{isBooked.prName.split(" ")[0]}</button>
                   ) : (
-                  <button type="button" className="btn book-btn-02" data-bs-toggle="modal"
+                  <button type="button" className="btn book-btn" data-bs-toggle="modal"
                     data-bs-target="#bookingModal" data-table={table} onClick={handleTableClick}>{table}</button>
                   )}
                 </div>
@@ -225,7 +225,7 @@ function Console() {
                   {isBooked ? (
                   <button className="btn sold-btn" disabled>Sold : {table}<br />{isBooked.prName.split(" ")[0]}</button>
                   ) : (
-                  <button type="button" className="btn book-btn-02" data-bs-toggle="modal"
+                  <button type="button" className="btn book-btn" data-bs-toggle="modal"
                     data-bs-target="#bookingModal" data-table={table} onClick={handleTableClick}>{table}</button>
                   )}
                 </div>
