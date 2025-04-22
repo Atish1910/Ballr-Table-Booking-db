@@ -4,7 +4,6 @@ import Login from "./components/login/Login";
 import Register from "./components/login/Register";
 import Navbar from "./components/Navbar";
 import Console from "./components/section/Console";
-import ExlusiveVip from "./components/section/ExlusiveVip";
 import "./index.css";
 import "bootstrap/dist/css/bootstrap.min.css";
 import "bootstrap/dist/js/bootstrap.bundle.min";
