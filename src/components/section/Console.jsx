@@ -20,6 +20,13 @@ import SectionFour from "./SectionFour";
 import SectionFiveS from "./SectionFiveS";
 import SectionFiveK1 from "./SectionFiveK1";
 import SectionFiveK2 from "./SectionFiveK2";
+import SectionSixF1 from "./SectionSixF1";
+import SectionSixF3 from "./SectionSixF3";
+import SectionSixF2 from "./SectionSixF2";
+import SectionSixF4 from "./SectionSixF4";
+import SectionSixF5 from "./SectionSixF5";
+import SectionSixF6 from "./SectionSixF6";
+import SectionSixF7 from "./SectionSixF7";
 
 function Console() {
   
@@ -162,7 +169,27 @@ function Console() {
             </div>
             
           </div>
-          <div className="row middle-section" ></div>
+          <div className="row " >
+            <div className="col-10">
+              <SectionSixF1 bookings={bookings} handleTableClick={handleTableClick}></SectionSixF1>
+            </div>
+            <div className="col-12">
+              <SectionSixF2 bookings={bookings} handleTableClick={handleTableClick}></SectionSixF2>
+              <SectionSixF3 bookings={bookings} handleTableClick={handleTableClick}></SectionSixF3>
+              <SectionSixF4 bookings={bookings} handleTableClick={handleTableClick}></SectionSixF4>
+            </div>
+          </div>
+          <div className="row align-items-center ">
+            <div className="col-5">
+              <SectionSixF5 bookings={bookings} handleTableClick={handleTableClick}></SectionSixF5>
+            </div>
+            <div className="col-2">
+              <SectionSixF7 bookings={bookings} handleTableClick={handleTableClick}></SectionSixF7>
+            </div>
+            <div className="col-5">
+              <SectionSixF6 bookings={bookings} handleTableClick={handleTableClick}></SectionSixF6>
+            </div>
+          </div>
           <div className="row">
             <SectionFiveK2 bookings={bookings} handleTableClick={handleTableClick}></SectionFiveK2>
             <SectionFiveK1 bookings={bookings} handleTableClick={handleTableClick}></SectionFiveK1>
