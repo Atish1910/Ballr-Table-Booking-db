@@ -30,7 +30,7 @@ import SectionSixF7 from "./SectionSixF7";
 
 function Console() {
   
-  // const url = process.env.REACT_BASE_URL;
+  const apiUrl = import.meta.env.REACT_BASE_URL;
   const {
     date
   } = useParams();

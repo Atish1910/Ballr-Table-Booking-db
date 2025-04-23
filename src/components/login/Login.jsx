@@ -6,6 +6,8 @@ import Cookies from "js-cookie";
 
 function Login({ setIsLoggedIn, setLoggedInUser }) {
   const navigate = useNavigate();
+  
+  const apiUrl = import.meta.env.REACT_BASE_URL;
 
   const {
     register,
@@ -17,7 +19,7 @@ function Login({ setIsLoggedIn, setLoggedInUser }) {
     debugger
     try {
       // Send login data to API
-      const response = await axios.post("https://ballr-mern-ashish.onrender.com/login", data);
+      const response = await axios.post(`https://ballr-mern-ashish.onrender.com/login`, data);
 
       if (response.status === 200) {
         const user = response.data.user;

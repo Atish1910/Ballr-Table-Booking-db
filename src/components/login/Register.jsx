@@ -12,6 +12,8 @@ function Register() {
     formState: { errors, isSubmitting },
   } = useForm();
 
+  const apiUrl = import.meta.env.REACT_BASE_URL;
+
   async function onRegistration(data) {
     debugger
     const newUser = {
@@ -21,8 +23,8 @@ function Register() {
 
     console.log("Registering user:", newUser); // ✅ for debugging
 
-    try { // https://ballr-mern-ashish.onrender.com
-      const response = await axios.post("https://ballr-mern-ashish.onrender.com/register",newUser);
+    try {
+      const response = await axios.post(`https://ballr-mern-ashish.onrender.com/register`,newUser);
 
       if (response.status === 201 || response.status === 200) {
         toast.success("Registration Successful");

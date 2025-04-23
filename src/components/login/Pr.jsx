@@ -8,11 +8,13 @@ function Pr() {
   useEffect(() => {
     fetchPRUsers();
   }, []);
+  
+  const apiUrl = import.meta.env.REACT_BASE_URL;
 
   // get api
   const fetchPRUsers = async () => {
     try {
-      const response = await axios.get("https://ballr-mern-ashish.onrender.com/getallusers", {
+      const response = await axios.get(`https://ballr-mern-ashish.onrender.com/getallusers`, {
       });
   
       const allUsers = response.data.data;
@@ -84,16 +86,11 @@ function Pr() {
 
   return (
 <>
-<button type="button" className="btn btn-primary" data-bs-toggle="modal" data-bs-target="#exampleModal">View Pr</button>
-
-<div className="modal fade" id="exampleModal" tabIndex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
-  <div className="modal-dialog">
   <div className="modal-content">
-        <div className="modal-header">
-          <h1 className="modal-title fs-5" id="staticBackdropLabel">
+        <div className=" border bg-gold py-2">
+          <h1 className="fs-5  text-center text-white" >
             All PR Details
           </h1>
-          <button type="button" className="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
         </div>
         <div className="modal-body">
           <table className="table table-bordered text-center">
@@ -104,6 +101,7 @@ function Pr() {
                 <th>Email</th>
                 <th>Phone No</th>
                 <th>Activate User</th>
+                <th>User Type</th>
                 {/* <th>Delete User</th> */}
               </tr>
             </thead>
@@ -115,6 +113,7 @@ function Pr() {
                 <td>{user.name}</td>
                 <td>{user.email}</td>
                 <td>{user.contactNumber}</td>
+                <td>{user.accountType}</td>
                 <td>
                 <input 
                     type="checkbox"
@@ -140,9 +139,7 @@ function Pr() {
             </tbody>
           </table>
         </div>
-      </div>
   </div>
-</div>
 </>
 );
 }

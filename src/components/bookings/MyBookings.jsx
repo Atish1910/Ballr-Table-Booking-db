@@ -2,7 +2,7 @@ import { useState, useEffect } from "react";
 import axios from "axios";
 import toast from "react-hot-toast";
 
-function TableBookings() {
+function MyBookings() {
   const [bookings, setBookings] = useState([]);
   
   const apiUrl = import.meta.env.REACT_BASE_URL;
@@ -11,17 +11,30 @@ function TableBookings() {
   useEffect(() => {
     fetchBookings();
   }, []);
-  
 
   const fetchBookings = async () => {
     try {
+      const loggedInUser = JSON.parse(localStorage.getItem("loggedInUser"));
       const res = await axios.get(`https://ballr-mern-ashish.onrender.com/getallbookings`);
-      setBookings(res.data.data);  // assuming your API returns data in res.data.data
+  
+      // Filter bookings by logged-in PR name
+      const userBookings = res.data.data.filter(
+        (booking) => booking.prName === loggedInUser.name
+      );
+  
+      // Sort by currDate descending (latest first)
+      const sortedBookings = userBookings.sort((a, b) => {
+        return new Date(b.bookedDate) - new Date(a.bookedDate);
+      });
+  
+      setBookings(sortedBookings);
     } catch (err) {
       console.error("Failed to fetch bookings", err);
       toast.error("Failed to fetch bookings");
     }
   };
+  
+  
 
 
   return (
@@ -73,4 +86,4 @@ function TableBookings() {
   );
 }
 
-export default TableBookings;
+export default MyBookings;

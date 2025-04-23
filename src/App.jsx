@@ -8,6 +8,10 @@ import "./index.css";
 import "bootstrap/dist/css/bootstrap.min.css";
 import "bootstrap/dist/js/bootstrap.bundle.min";
 import 'bootstrap-icons/font/bootstrap-icons.css';
+import LogoutButton from "./LogoutButton";
+import TableBookings from "./components/bookings/TableBookings";
+import Pr from "./components/login/Pr";
+import MyBookings from "./components/bookings/MyBookings";
 
 function App() {
   const [isLoggedIn, setIsLoggedIn] = useState(false);
@@ -23,12 +27,6 @@ function App() {
     }
   }, []);
 
-  const handleLogout = () => {
-    localStorage.removeItem("isLoggedIn");
-    localStorage.removeItem("loggedInUser");
-    setIsLoggedIn(false);
-    setLoggedInUser(null);
-  };
 
   return (
     <Router>
@@ -42,9 +40,12 @@ function App() {
           <Routes>
             <Route path="/" element={<Navigate to={`/${new Date().toISOString().slice(0, 10)}`} />} />
             <Route path="/:date" element={<Console />} />
+            <Route  path="/bookings" element={<TableBookings />}></Route>
+            <Route path="/pr" element={<Pr></Pr>}></Route>
+            <Route path="/mybookings" element={<MyBookings></MyBookings>}></Route>
           </Routes>
           <div className="text-center">
-            <button className="btn btn-danger mt-3" onClick={handleLogout}>Logout</button>
+            <LogoutButton setIsLoggedIn={setIsLoggedIn} setLoggedInUser={setLoggedInUser}></LogoutButton>
           </div>
         </>
       ) : (

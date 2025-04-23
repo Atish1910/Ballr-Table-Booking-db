@@ -9,7 +9,7 @@
   --light: #F3F2F4;
   --dark: #1c1c1c;
   --secondary: #eee;
-  --grey: #f5f5f5;
+  --grey: #fdf8f1;
   --hfont: "Lato", sans-serif;
   --cfont: "Lato", sans-serif;
   --headfont: "Playfair Display", sans-serif;
@@ -1137,6 +1137,24 @@ span.brownTriangle {
   background-color: white !important;
   color: var(--green) !important;
   border: var(--green) solid 1px !important;
+}
+.c_btn{
+  color: var(--bs-white) !important;
+  background-color: #be7e2c !important;
+  border: var(--gold) solid 1px !important;
+}
+.c_btn:hover{
+  color: var(--gold) !important;
+  background-color: white !important;
+}
+.c_btn_02{
+  color: var(--bs-white) !important;
+  background-color: #be7e2c !important;
+  border: var(--gold) solid 1px !important;
+}
+.c_btn_02:hover{
+  color: var(--gold) !important;
+  background-color: white !important;
 }
 .book-btn-circle{
   background-color: white !important;

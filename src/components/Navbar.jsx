@@ -1,5 +1,5 @@
 import { useEffect, useState } from "react";
-import { NavLink, useNavigate, useParams } from "react-router-dom";
+import { Link, NavLink, useNavigate, useParams } from "react-router-dom";
 import Pr from "./login/Pr";
 import TableBookings from "./bookings/TableBookings";
 
@@ -34,10 +34,15 @@ function Navbar() {
                 <div className="d-flex justify-content-between align-items-center border mb-3 py-2  px-5">
                         <img src="src/img/logo/1.png" alt="Logo" />
                         <div className="">
-                            {storedUser?.accountType === "Admin" && <Pr></Pr>}
+                            {
+                                storedUser?.accountType === "Admin" && <Link to="/pr" className="btn c_btn">PR</Link>
+                            }
                         </div>
                         <div className="">
-                            <TableBookings></TableBookings>
+                            <Link to="/mybookings" className="btn c_btn_02">My Bookings</Link>
+                        </div>
+                        <div className="">
+                            <Link to="/bookings" className="btn c_btn_02">All Bookings</Link>
                         </div>
                 </div>
                 <div className="row text-center" >
