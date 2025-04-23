@@ -1159,6 +1159,9 @@ span.brownTriangle {
 .rotate-90deg{
   rotate: 270deg;
 }
+.border-gold{
+  border: solid var(--gold) 1px !important;
+}
 .SectionFiveK1{
   border: solid var(--gold) 1px !important;
   border-radius: 40px 40px 0px 0px !important;
@@ -1174,7 +1177,7 @@ span.brownTriangle {
 }
 .sectiontwo{
   border: solid var(--gold) 1px !important;
-  border-radius: 0px 0px 40px 40px !important; 
+  border-radius: 0px 0px 20px 20px !important; 
 }
 .m-auto{
   margin: auto !important;
@@ -1218,7 +1221,14 @@ span.brownTriangle {
   padding: 7px 6px;
   margin: 5px 0px;
 }
+.left-15{
+  left: -15px;
+}
 @media (max-width:992px) {
+  
+.left-15{
+  left: unset;
+}
   .entry-gate{
     position: absolute;
     top: 32px;

@@ -5,7 +5,7 @@ function SectionThree({ bookings, handleTableClick }) {
       {sectionThree.map((table) => {
         const isBooked = bookings.find((booking) => booking.tableNo === table);
         return (
-          <div key={table} className="border-dark pb-3">
+          <div key={table} className="border-dark pb-lg-5 pb-4">
             {isBooked ? (
               <button className="btn sold-btn" disabled>{table}</button>
             ) : (

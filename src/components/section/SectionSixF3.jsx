@@ -9,7 +9,7 @@ function SectionSixF3({ bookings, handleTableClick}) {
           return (
           <div key={table} className="col-20 border-dark pb-3">
             {isBooked ? (
-            <button className="btn sold-btn" disabled>{table}</button>
+            <button className="btn sold-btn-circle" disabled>{table}</button>
             ) : (
             <button type="button" className="btn book-btn-circle" data-bs-toggle="modal" data-bs-target="#bookingModal"
               data-table={table} onClick={handleTableClick}>{table}</button>

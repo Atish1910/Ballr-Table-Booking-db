@@ -2,7 +2,7 @@ function SectionTwo({ bookings, handleTableClick}) {
   const sectionTwo = ["T7", "T8","T9","T10"];
 return (
   <>  
-    <div className="row text-center pt-lg-4 pt-2  border rounded-3">
+    <div className="row text-center pt-lg-4 pt-2 border-gold rounded-3">
       <h6 className="text-center fw-bold ">Expensive VIP Section</h6>
       {sectionTwo.map((table) => {
       // Check if table is already booked in bookings list

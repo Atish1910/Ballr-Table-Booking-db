@@ -37,10 +37,14 @@ function SectionTwoE2({ bookings, handleTableClick}){
               </button>
             )}
           </div>
-          <div className="col border">
-            <p className="border pt-1 mt-3"></p>
-            <p className="border pt-1"></p>
-            <p className="border pt-1 d-none d-lg-block"></p>
+          <div className="col p-0">
+            <p className="border pt-1 mb-0 mt-3"></p>
+            <p className="border pt-1 mb-0"></p>
+            <p className="border pt-1 mb-0"></p>
+            <p className="border pt-1 mb-0"></p>
+            <p className="border pt-1 mb-0"></p>
+            <p className="border pt-1 mb-0 d-none d-lg-block"></p>
+            <p className="border pt-1 mb-0 d-none d-lg-block"></p>
           </div>
 
           <div className="col col-20 col-20 border-dark py-3">

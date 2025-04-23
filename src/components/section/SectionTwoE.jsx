@@ -2,7 +2,7 @@ function SectionTwoE({ bookings, handleTableClick}){
   const tables = ["E1", "E2", "E3", "E4"];
 
   return (
-        <div className="row text-center border rounded-3 bg-gold pt-lg-3 pb-lg-5 py-2">
+        <div className="row text-center border rounded-3 bg-gold">
           {/* Buttons */}
           <div className="col col-20  border-dark py-3">
             {bookings.find((b) => b.tableNo === "E1") ? (
@@ -35,7 +35,7 @@ function SectionTwoE({ bookings, handleTableClick}){
               >E2</button>
             )}
           </div>
-          <div className="col col-20 border">
+          <div className="col col-20 border pt-3 pb-4 py-lg-5">
           </div>
 
           <div className="col col-20 py-3">

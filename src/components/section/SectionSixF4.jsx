@@ -2,11 +2,11 @@ function SectionSixF4({ bookings, handleTableClick}){
   const tables = ["M5"];
 
   return (
-        <div className="row justify-content-center align-items-center pb-3">
+        <div className="row justify-content-center align-items-center py-lg-4 py-2">
           {/* Buttons */}
-          <div className="col-3">
+          <div className="col-3 text-center">
             {bookings.find((b) => b.tableNo === "M5") ? (
-              <button className="btn sold-btn-circle-circle" disabled>M5</button>
+              <button className="btn sold-btn-circle  p-3 fs-6" disabled>M5</button>
             ) : (
               <button
                 type="button"

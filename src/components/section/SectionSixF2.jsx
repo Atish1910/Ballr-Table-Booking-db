@@ -6,7 +6,7 @@ function SectionSixF2({ bookings, handleTableClick}){
           {/* Buttons */}
           <div className="col col-20 ">
             {bookings.find((b) => b.tableNo === "F12") ? (
-              <button className="btn sold-btn-circle-circle" disabled>F12</button>
+              <button className="btn sold-btn-circle" disabled>F12</button>
             ) : (
               <button
                 type="button"
@@ -23,7 +23,7 @@ function SectionSixF2({ bookings, handleTableClick}){
 
           <div className="col col-20 col-20 ">
             {bookings.find((b) => b.tableNo === "F11") ? (
-              <button className="btn sold-btn-circle-circle" disabled>F11</button>
+              <button className="btn sold-btn-circle" disabled>F11</button>
             ) : (
               <button
                 type="button"
@@ -40,7 +40,7 @@ function SectionSixF2({ bookings, handleTableClick}){
           <div className="col col-20 d-block ">
             <div className="">
             {bookings.find((b) => b.tableNo === "M1") ? (
-              <button className="btn sold-btn-circle" disabled>M1</button>
+              <button className="btn sold-btn py-0" disabled>M1</button>
             ) : (
               <button
                 type="button"
@@ -61,7 +61,7 @@ function SectionSixF2({ bookings, handleTableClick}){
 
            
             {bookings.find((b) => b.tableNo === "M2") ? (
-              <button className="btn sold-btn-circle" disabled>M2</button>
+              <button className="btn sold-btn  py-0" disabled>M2</button>
             ) : (
               <button
                 type="button"
@@ -79,7 +79,7 @@ function SectionSixF2({ bookings, handleTableClick}){
 
           <div className="col col-20 col-20 ">
             {bookings.find((b) => b.tableNo === "F10") ? (
-              <button className="btn sold-btn-circle-circle" disabled>F10</button>
+              <button className="btn sold-btn-circle" disabled>F10</button>
             ) : (
               <button
                 type="button"
@@ -96,7 +96,7 @@ function SectionSixF2({ bookings, handleTableClick}){
 
           <div className="col col-20 col-20 ">
             {bookings.find((b) => b.tableNo === "F9") ? (
-              <button className="btn sold-btn-circle-circle" disabled>F9</button>
+              <button className="btn sold-btn-circle" disabled>F9</button>
             ) : (
               <button
                 type="button"
