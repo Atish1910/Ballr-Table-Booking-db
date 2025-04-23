@@ -16,13 +16,20 @@ function TableBookings() {
   const fetchBookings = async () => {
     try {
       const res = await axios.get(`https://ballr-mern-ashish.onrender.com/getallbookings`);
-      setBookings(res.data.data);  // assuming your API returns data in res.data.data
+  
+      const sortedBookings = res.data.data.sort((a, b) => {
+        const dateA = new Date(a.currDate);
+        const dateB = new Date(b.currDate);
+        return dateB.getTime() - dateA.getTime(); // Newest first
+      });
+  
+      setBookings(sortedBookings);
     } catch (err) {
       console.error("Failed to fetch bookings", err);
       toast.error("Failed to fetch bookings");
     }
   };
-
+  
 
   return (
     <>
@@ -49,7 +56,7 @@ function TableBookings() {
                     {bookings.length > 0 ? (
                       bookings.map((booking, index) => (
                         <tr key={booking._id}>
-                          <td>{index + 1}</td>
+                          <td>{bookings.length - index}</td> {/* Latest = #1 */}
                           <td>{booking.tableNo}</td>
                           <td>{booking.prName}</td>
                           <td>{booking.guestName}</td>
@@ -64,6 +71,7 @@ function TableBookings() {
                       </tr>
                     )}
                   </tbody>
+
                 </table>
               </div>
             </div>

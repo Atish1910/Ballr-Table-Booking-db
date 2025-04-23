@@ -54,7 +54,7 @@ function SectionSixF2({ bookings, handleTableClick}){
               </button>
             )}
             </div>
-            <div className="d-flex justify-content-lg-center justify-content-end">
+            <div className="d-flex justify-content-center">
               <div className="m-table"></div>
             </div>
             <div className=""> 

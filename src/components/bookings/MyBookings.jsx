@@ -24,7 +24,7 @@ function MyBookings() {
   
       // Sort by currDate descending (latest first)
       const sortedBookings = userBookings.sort((a, b) => {
-        return new Date(b.bookedDate) - new Date(a.bookedDate);
+        return new Date(b.currDate) - new Date(a.currDate);
       });
   
       setBookings(sortedBookings);

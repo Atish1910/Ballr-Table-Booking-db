@@ -1245,7 +1245,7 @@ span.brownTriangle {
 @media (max-width:992px) {
   
 .left-15{
-  left: unset;
+  left: -11px;
 }
   .entry-gate{
     position: absolute;

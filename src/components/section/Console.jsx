@@ -178,7 +178,7 @@ function Console() {
               <SectionSixF4 bookings={bookings} handleTableClick={handleTableClick}></SectionSixF4>
             </div>
           </div>
-          <div className="row align-items-center ">
+          <div className="row align-items-center m-auto">
             <div className="col-5">
               <SectionSixF5 bookings={bookings} handleTableClick={handleTableClick}></SectionSixF5>
             </div>
