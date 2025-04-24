@@ -2,7 +2,7 @@ function SectionSixF6({ bookings, handleTableClick}) {
   const sectionSixF6 = ["F20","F19","F25","F24", "F29","F28"];
     return (
       <>  
-        <div className="row text-center pt-lg-4 pt-2 m-auto">
+        <div className="row text-center pt-lg-4 pt-2">
           {sectionSixF6.map((table) => {
           // Check if table is already booked in bookings list
           const isBooked = bookings.find((booking) => booking.tableNo === table);

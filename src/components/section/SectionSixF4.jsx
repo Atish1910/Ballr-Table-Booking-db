@@ -2,7 +2,7 @@ function SectionSixF4({ bookings, handleTableClick}){
   const tables = ["M5"];
 
   return (
-        <div className="row justify-content-center align-items-center py-lg-4 py-2">
+        <div className="row justify-content-center align-items-center pt-lg-4 py-2 left-02">
           {/* Buttons */}
           <div className="col-3 text-center">
             {bookings.find((b) => b.tableNo === "M5") ? (

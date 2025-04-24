@@ -146,7 +146,7 @@ function Console() {
 
   return (
 <>
-  <section className="section-01 border border-dark position-relative">
+  <section className="section-01 position-relative">
     <div className="container  py-5">
       <div className="row border-gold justify-content-center align-items-center position-relative">
         <div className="col-2 col-lg-2">
@@ -178,18 +178,18 @@ function Console() {
               <SectionSixF4 bookings={bookings} handleTableClick={handleTableClick}></SectionSixF4>
             </div>
           </div>
-          <div className="row align-items-center m-auto">
+          <div className="row align-items-center position-relative left-02">
             <div className="col-5">
               <SectionSixF5 bookings={bookings} handleTableClick={handleTableClick}></SectionSixF5>
             </div>
-            <div className="col-2">
+            <div className="col-2  position-relative left-02">
               <SectionSixF7 bookings={bookings} handleTableClick={handleTableClick}></SectionSixF7>
             </div>
             <div className="col-5">
               <SectionSixF6 bookings={bookings} handleTableClick={handleTableClick}></SectionSixF6>
             </div>
           </div>
-          <div className="row">
+          <div className="row right-01 right-02">
             <SectionFiveK2 bookings={bookings} handleTableClick={handleTableClick}></SectionFiveK2>
             <SectionFiveK1 bookings={bookings} handleTableClick={handleTableClick}></SectionFiveK1>
             <SectionFiveS bookings={bookings} handleTableClick={handleTableClick}></SectionFiveS>

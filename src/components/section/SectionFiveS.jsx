@@ -2,7 +2,7 @@ function SectionFiveS({ bookings, handleTableClick}) {
   const sectionFiveS = ["S7","S8","S9","S10"];
     return (
       <>  
-        <div className="row text-center pt-lg-4 pt-2 m-auto">
+        <div className="row text-center pt-lg-4 pt-2">
           {sectionFiveS.map((table) => {
           // Check if table is already booked in bookings list
           const isBooked = bookings.find((booking) => booking.tableNo === table);

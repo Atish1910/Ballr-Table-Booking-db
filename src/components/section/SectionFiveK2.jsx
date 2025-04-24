@@ -2,7 +2,7 @@ function SectionFiveK2({ bookings, handleTableClick}){
   const tables = ["K5", "K6"];
 
   return (
-        <div className="row text-center pt-lg-3 pb-lg-5 align-items-center SectionFivek2 m-auto">
+        <div className="row text-center py-lg-3 align-items-center SectionFivek2">
           {/* Buttons */}
           <div className="col-4  border-dark">
             {bookings.find((b) => b.tableNo === "k5") ? (
@@ -20,10 +20,14 @@ function SectionFiveK2({ bookings, handleTableClick}){
               </button>
             )}
           </div>
-          <div className="col-4  border">
-          <p className="border pt-1 mt-3"></p>
-            <p className="border pt-1"></p>
-            <p className="border pt-1 d-none d-lg-block"></p>
+          <div className="col-4 py-1 px-2">
+            <p className="border-gold pt-1 mb-0"></p>
+            <p className="border-gold pt-1 mb-0"></p>
+            <p className="border-gold pt-1 mb-0"></p>
+            <p className="border-gold pt-1 mb-0"></p>
+            <p className="border-gold pt-1 mb-0"></p>
+            <p className="border-gold pt-1 mb-0 d-none d-lg-block"></p>
+            <p className="border-gold pt-1 mb-0 d-none d-lg-block"></p>
           </div>
 
           <div className="col-4  border-dark">

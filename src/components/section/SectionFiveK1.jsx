@@ -2,7 +2,7 @@ function SectionFiveK1({ bookings, handleTableClick}){
   const tables = ["K1", "K2", "K3", "K4"];
 
   return (
-        <div className="row text-center bg-gold pt-lg-3 pb-lg-5 SectionFiveK1 m-auto">
+        <div className="row text-center bg-gold py-lg-3 SectionFiveK1">
           {/* Buttons */}
           <div className="col col-20  border-dark py-4">
             {bookings.find((b) => b.tableNo === "K1") ? (

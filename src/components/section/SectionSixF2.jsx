@@ -37,7 +37,7 @@ function SectionSixF2({ bookings, handleTableClick}){
               </button>
             )}
           </div>
-          <div className="col col-20 d-block ">
+          <div className="col col-20 d-block position-relative left-02 ">
             <div className="">
             {bookings.find((b) => b.tableNo === "M1") ? (
               <button className="btn sold-btn py-0" disabled>M1</button>
@@ -54,7 +54,7 @@ function SectionSixF2({ bookings, handleTableClick}){
               </button>
             )}
             </div>
-            <div className="d-flex justify-content-center">
+            <div className="d-flex justify-content-center right-01">
               <div className="m-table"></div>
             </div>
             <div className=""> 

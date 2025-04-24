@@ -1198,7 +1198,7 @@ span.brownTriangle {
   border-radius: 0px 0px 20px 20px !important; 
 }
 .m-auto{
-  margin: auto !important;
+  /* margin: auto !important; */
 }
 .sold-btn{
   background-color: var(--secondary) !important;
@@ -1245,7 +1245,7 @@ span.brownTriangle {
 @media (max-width:992px) {
   
 .left-15{
-  left: -11px;
+  left: -5px;
 }
   .entry-gate{
     position: absolute;
@@ -1287,5 +1287,20 @@ span.brownTriangle {
   .sold-btn-circle{
     font-size: 9px !important;
   }
+  .left-02{
+    position: relative;
+    left: -7px !important;
+  }
+  .right-01{
+    position: relative;
+    right: -12px !important;
+  }
 
+}
+.border-gold{
+  border: solid var(--gold) 1px !important;
+}
+.right-02{
+  position: relative;
+  right: -12px !important;
 }
