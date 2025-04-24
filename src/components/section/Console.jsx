@@ -194,6 +194,14 @@ function Console() {
             <SectionFiveK1 bookings={bookings} handleTableClick={handleTableClick}></SectionFiveK1>
             <SectionFiveS bookings={bookings} handleTableClick={handleTableClick}></SectionFiveS>
           </div>
+          <div className="row justify-content-center mb-3">
+            <div className="col-10 text-center bg-gold rounded-3 py-3">
+            <h3 className="text-white ">SD LOUNGE</h3>
+            </div>
+            <div className="col-10 pt-3 text-center">
+              <h1 className="text-gold">For More Bookings : {loggedInUser?.contactNumber}</h1>
+            </div>
+          </div>
         </div>
         <div className="col-3  col-lg-2">
         <div className=" text-center border entry-gate">
@@ -239,6 +247,40 @@ function Console() {
         </div>
       </div>
     </div>
+  </section>
+  <section>
+  <div class="container my-5 custom">
+  <div class="table-responsive">
+      <table class="table table-bordered text-center table-responsive rounded-3 py-2 ">
+        <thead>
+          <tr>
+            <th>D1 - D6</th>
+            <th>S1 - S10 | T1 - T10</th>
+            <th>E1 - E4 | K1 - K4</th>
+            <th>E5 - E8</th>
+            <th >K5 - K6 | M1 - M5</th>
+            <th >F1 - F31</th>
+          </tr>
+          <tr>
+            <td>10 PAX</td>
+            <td>10 PAX</td>
+            <td>10 PAX</td>
+            <td>10 PAX</td>
+            <td>8 PAX</td>
+            <td>5 PAX</td>
+          </tr>
+          <tr class="fw-bold">
+            <td>1,00,000</td>
+            <td>50,000</td>
+            <td>80,000</td>
+            <td>50,000</td>
+            <td>40,000</td>
+            <td>20,000</td>
+          </tr>
+        </thead>
+      </table>
+    </div>
+  </div>
   </section>
 
   {/* Booking Details Start */}

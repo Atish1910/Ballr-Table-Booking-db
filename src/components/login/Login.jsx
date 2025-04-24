@@ -1,8 +1,9 @@
 import axios from "axios";
 import { useForm } from "react-hook-form";
 import toast from "react-hot-toast";
-import { useNavigate } from "react-router-dom";
+import { Link, useNavigate } from "react-router-dom";
 import Cookies from "js-cookie";
+import usermanual from "../../img/Ballr-user-manual.pdf";
 
 function Login({ setIsLoggedIn, setLoggedInUser }) {
   const navigate = useNavigate();
@@ -20,6 +21,7 @@ function Login({ setIsLoggedIn, setLoggedInUser }) {
     try {
       // Send login data to API
       const response = await axios.post(`https://ballr-mern-ashish.onrender.com/login`, data);
+
 
       if (response.status === 200) {
         const user = response.data.user;
@@ -78,15 +80,18 @@ function Login({ setIsLoggedIn, setLoggedInUser }) {
                   {isSubmitting ? "Logging in..." : "Login"}
                 </button>
                 <p className="mb-0 py-2 text-white">Don’t have an account?</p>
-                <button
-                  type="button"
-                  className="btn btn-primary"
-                  onClick={() => navigate("/register")}
-                >
-                  Register
-                </button>
+                <button type="button"   className="btn btn-primary"   onClick={() => navigate("/register")} >Register </button>
               </div>
             </form>
+            <div className="pt-2">
+            <a
+              href={usermanual}
+              target="_blank"
+              rel="noopener noreferrer"
+              className="text-white"
+            >How To Register?</a>
+
+            </div>
           </div>
         </div>
       </div>

@@ -2,6 +2,7 @@ import { useEffect, useState } from "react";
 import { Link, NavLink, useNavigate, useParams } from "react-router-dom";
 import Pr from "./login/Pr";
 import TableBookings from "./bookings/TableBookings";
+import logo from "../img/logo/1.png";
 
 function Navbar() {
     
@@ -32,7 +33,7 @@ function Navbar() {
                 <h1 className="text-center h3">Table Booking App</h1>
                 </div>
                 <div className="d-flex justify-content-between px-0 border align-items-center mb-3 py-2  px-lg-5">
-                        <img src="src/img/logo/1.png" alt="Logo" />
+                        <img src={logo} alt="Logo" />
                         <div className="">
                             {
                                 storedUser?.accountType === "Admin" && <Link to="/pr" className="btn c_btn">PR</Link>

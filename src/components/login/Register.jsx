@@ -12,20 +12,29 @@ function Register() {
     formState: { errors, isSubmitting },
   } = useForm();
 
-  const apiUrl = import.meta.env.REACT_BASE_URL;
-
   async function onRegistration(data) {
-    debugger
     const newUser = {
       ...data,
-      isActive: data.accountType == "Pr" ? false : true,
+      isActive: data.accountType === "Pr" ? false : true,
     };
-
-    console.log("Registering user:", newUser); // ✅ for debugging
-
+  
     try {
-      const response = await axios.post(`https://ballr-mern-ashish.onrender.com/register`,newUser);
-
+      // Step 1: Get all users
+      const allUsersRes = await axios.get("https://ballr-mern-ashish.onrender.com/getAllusers");
+  
+      // Step 2: Check if email already exists (case-insensitive)
+      const emailExists = allUsersRes.data.data.some(
+        (user) => user.email.toLowerCase() === newUser.email.toLowerCase() || user.contactNumber == newUser.contactNumber
+      );
+  
+      if (emailExists) {
+        toast.error("Your email or Phone No is already registered. Please try with a new email & Phone No.");
+        return; // stop further execution
+      }
+  
+      // Step 3: Proceed with registration
+      const response = await axios.post(`https://ballr-mern-ashish.onrender.com/register`, newUser);
+  
       if (response.status === 201 || response.status === 200) {
         toast.success("Registration Successful");
         navigate("/");
@@ -39,6 +48,7 @@ function Register() {
       toast.error(errorMessage);
     }
   }
+  
 
   return (
     <section className="login_01">

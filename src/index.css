@@ -1304,3 +1304,15 @@ span.brownTriangle {
   position: relative;
   right: -12px !important;
 }
+.custom-table {
+  background-color: #c17c2e;
+  color: white;
+  text-align: center;
+}
+.custom-table th, .custom-table td {
+  vertical-align: middle;
+}
+.custom .table {
+  --bs-table-color: var(--bs-white) !important;
+  --bs-table-bg: var(--gold) !important
+}
