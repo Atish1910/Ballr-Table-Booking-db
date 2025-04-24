@@ -147,7 +147,7 @@ function Console() {
   return (
 <>
   <section className="section-01 position-relative">
-    <div className="container  py-5">
+    <div className="container  pb-5 pt-3 ">
       <div className="row border-gold justify-content-center align-items-center position-relative">
         <div className="col-2 col-lg-2">
           <SectionThree bookings={bookings} handleTableClick={handleTableClick} />
