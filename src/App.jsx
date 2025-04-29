@@ -14,23 +14,28 @@ import Pr from "./components/login/Pr";
 import MyBookings from "./components/bookings/MyBookings";
 
 function App() {
-  const [isLoggedIn, setIsLoggedIn] = useState(false);
-  const [loggedInUser, setLoggedInUser] = useState(null);
+  const [isLoggedIn, setIsLoggedIn] = useState(false); //true/false value to check if a user is logged in.
+  const [loggedInUser, setLoggedInUser] = useState(null); //stores the logged-in user's data (like name, phone, etc.).
 
+
+  //2. Check Local Storage (useEffect)
   useEffect(() => {
-    const storedLogin = localStorage.getItem("isLoggedIn");
-    const storedUser = JSON.parse(localStorage.getItem("loggedInUser"));
+    const storedLogin = localStorage.getItem("isLoggedIn"); // store user details in local storage
+    const storedUser = JSON.parse(localStorage.getItem("loggedInUser")); 
 
     if (storedLogin === "true" && storedUser) {
       setIsLoggedIn(true);
       setLoggedInUser(storedUser);
     }
   }, []);
+  // if the app is open by user by 1st time it will check if yuser is alredy loggedin or not?, if user data is already present in DB the value is TRUE
+  // else value is false & user redirect to login.jsx
 
 
   return (
     <Router>
       {isLoggedIn ? (
+      // 4. Routes When Logged In
         <>
           <Navbar />
           <div className="container text-center mt-3">
@@ -46,9 +51,12 @@ function App() {
           </Routes>
           <div className="text-center">
             <LogoutButton setIsLoggedIn={setIsLoggedIn} setLoggedInUser={setLoggedInUser}></LogoutButton>
+            {/* LogoutButton is a separate component.
+            It will clear login and user data, and redirect user back to login page. */}
           </div>
         </>
       ) : (
+        // 5. Routes When NOT Logged In
         <Routes>
           <Route path="/" element={<Login setIsLoggedIn={setIsLoggedIn} setLoggedInUser={setLoggedInUser} />} />
           <Route path="/register" element={<Register />} />
