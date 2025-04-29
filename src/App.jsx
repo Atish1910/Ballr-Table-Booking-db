@@ -58,7 +58,7 @@ function App() {
       ) : (
         // 5. Routes When NOT Logged In
         <Routes>
-          <Route path="/" element={<Login setIsLoggedIn={setIsLoggedIn} setLoggedInUser={setLoggedInUser} />} />
+          <Route path="/*" element={<Login setIsLoggedIn={setIsLoggedIn} setLoggedInUser={setLoggedInUser} />} />
           <Route path="/register" element={<Register />} />
         </Routes>
       )}
