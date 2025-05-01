@@ -23,9 +23,13 @@ function Register() {
       const allUsersRes = await axios.get("http://localhost:4000/getAllusers");
   
       // Step 2: Check if email already exists (case-insensitive)
-      const emailExists = allUsersRes.data.data.some(
-        (user) => user.email.toLowerCase() === newUser.email.toLowerCase() || user.contactNumber == newUser.contactNumber
+      const users = allUsersRes.data.data || []; // fallback to empty array
+      const emailExists = users.some(
+        (user) =>
+          user.email.toLowerCase() === newUser.email.toLowerCase() ||
+          user.contactNumber == newUser.contactNumber
       );
+
   
       if (emailExists) {
         toast.error("Your email or Phone No is already registered. Please try with a new email & Phone No.");

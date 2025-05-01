@@ -19,6 +19,19 @@ function Login({ setIsLoggedIn, setLoggedInUser }) {
   async function onLogin(data) {
     debugger
     try {
+      // Get APi to check where User is Present in DB or not
+      const allUsersRes = await axios.get("https://ballr-mern-ashish.onrender.com/getAllusers");
+      const users = allUsersRes.data.data || [];
+      const emailExists = users.some(
+        (user) => 
+          user.email.toLowerCase() === data.email.toLowerCase()
+      );
+
+      if(!emailExists){
+        toast.error("Your Email ID is Not Register Please Register Your Email");
+        console.log("Your Email ID is Not Register Please Register Your Email")
+        return
+      }
       // Send login data to API
       const response = await axios.post(`http://localhost:4000/login`, data);
 
@@ -54,7 +67,7 @@ function Login({ setIsLoggedIn, setLoggedInUser }) {
       <div className="container">
         <div className="row justify-content-center text-center">
           <h1>Login to Ballr</h1>
-          <div className="col-lg-6 border mt-3 py-3">
+          <div className="col-lg-12 border mt-3 py-3">
             <form onSubmit={handleSubmit(onLogin)}>
               {/* Email */}
               <input

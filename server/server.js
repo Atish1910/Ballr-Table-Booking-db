@@ -48,12 +48,12 @@ app.post("/login", async (req, res) => {
     // Check if user exists
     const user = await User.findOne({ email });
     if (!user) {
-      return res.status(400).json({ message: "Invalid email or password." });
+      return res.status(400).json({ message: "Invalid email." });
     }
 
     // Check password (since it's plaintext right now — ideally you'd hash it)
     if (user.password !== password) {
-      return res.status(400).json({ message: "Invalid email or password." });
+      return res.status(400).json({ message: "Invalid password." });
     }
 
     // On success
