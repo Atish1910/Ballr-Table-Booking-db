@@ -60,6 +60,7 @@ function App() {
         <Routes>
           <Route path="/*" element={<Login setIsLoggedIn={setIsLoggedIn} setLoggedInUser={setLoggedInUser} />} />
           <Route path="/register" element={<Register />} />
+          <Route path="*" element={<Navigate to="/" />} />
         </Routes>
       )}
     </Router>
