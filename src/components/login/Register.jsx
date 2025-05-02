@@ -20,7 +20,7 @@ function Register() {
   
     try {
       // Step 1: Get all users
-      const allUsersRes = await axios.get("https://ballr-mern-ashish.onrender.com/getAllusers");
+      const allUsersRes = await axios.get("http://localhost:4000/getAllusers");
   
       // Step 2: Check if email already exists (case-insensitive)
       const users = allUsersRes.data.data || []; // fallback to empty array
@@ -37,7 +37,7 @@ function Register() {
       }
   
       // Step 3: Proceed with registration
-      const response = await axios.post(`https://ballr-mern-ashish.onrender.com/register`, newUser);
+      const response = await axios.post(`http://localhost:4000/register`, newUser);
   
       if (response.status === 201 || response.status === 200) {
         toast.success("Registration Successful");
