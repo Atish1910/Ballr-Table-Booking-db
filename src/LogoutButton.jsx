@@ -12,7 +12,7 @@ function LogoutButton({ setIsLoggedIn, setLoggedInUser }) {
     localStorage.removeItem("loggedInUser");
     setIsLoggedIn(false);
     setLoggedInUser(null);
-    navigate("/"); // 👈 Redirect to login
+    navigate("/"); //  Redirect to login
   };
 
   return (
