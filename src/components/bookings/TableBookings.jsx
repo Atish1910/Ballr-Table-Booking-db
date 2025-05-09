@@ -54,7 +54,7 @@ function TableBookings() {
                   <tbody>
                     {bookings.length > 0 ? (
                       bookings.map((booking, index) => (
-                        <tr key={booking._id} className={booking.prName == loggedInUser.name ? "bg-gold" : ""}>
+                        <tr key={booking._id}>
                           <td>{bookings.length - index}</td> {/* Latest = #1 */}
                           <td>{booking.tableNo}</td>
                           <td>{booking.prName}</td>
