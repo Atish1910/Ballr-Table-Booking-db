@@ -33,7 +33,7 @@ function Navbar() {
                 <h1 className="text-center h3">Table Booking App</h1>
                 </div>
                 <div className="d-flex justify-content-between px-0 border align-items-center mb-3 py-2  px-lg-5">
-                        <img src={logo} alt="Logo" />
+                        <Link to="/"><img src={logo} alt="Logo" /></Link>
                         <div className="">
                             {
                                 storedUser?.accountType === "Admin" && <Link to="/pr" className="btn c_btn">PR</Link>
