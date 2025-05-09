@@ -12,6 +12,8 @@ import LogoutButton from "./LogoutButton";
 import TableBookings from "./components/bookings/TableBookings";
 import Pr from "./components/login/Pr";
 import MyBookings from "./components/bookings/MyBookings";
+import { ApiProvider } from "./ApiContext";
+  const apiUrl = 'https://ballr-mern-ashish.onrender.com/api/v1';
 
 function App() {
   const [isLoggedIn, setIsLoggedIn] = useState(false); //true/false value to check if a user is logged in.
@@ -33,37 +35,39 @@ function App() {
 
 
   return (
-    <Router>
-      {isLoggedIn ? (
-      // 4. Routes When Logged In
-        <>
-          <Navbar />
-          <div className="container text-center mt-3">
-            <h2>Welcome, {loggedInUser?.name}!</h2> {/* Show logged-in user's phone */}
-          </div>
-          {/* <ExlusiveVip /> */}
+    <ApiProvider>
+      <Router>
+        {isLoggedIn ? (
+        // 4. Routes When Logged In
+          <>
+            <Navbar />
+            <div className="container text-center mt-3">
+              <h2>Welcome, {loggedInUser?.name}!</h2> {/* Show logged-in user's phone */}
+            </div>
+            {/* <ExlusiveVip /> */}
+            <Routes>
+              <Route path="/" element={<Navigate to={`/${new Date().toISOString().slice(0, 10)}`} />} />
+              <Route path="/:date" element={<Console  setIsLoggedIn={setIsLoggedIn} setLoggedInUser={setLoggedInUser}/>} />
+              <Route  path="/bookings" element={<TableBookings />}></Route>
+              <Route path="/pr" element={<Pr></Pr>}></Route>
+              <Route path="/mybookings" element={<MyBookings></MyBookings>}></Route>
+            </Routes>
+            <div className="text-center">
+              <LogoutButton setIsLoggedIn={setIsLoggedIn} setLoggedInUser={setLoggedInUser}></LogoutButton>
+              {/* LogoutButton is a separate component.
+              It will clear login and user data, and redirect user back to login page. */}
+            </div>
+          </>
+        ) : (
+          // 5. Routes When NOT Logged In
           <Routes>
-            <Route path="/" element={<Navigate to={`/${new Date().toISOString().slice(0, 10)}`} />} />
-            <Route path="/:date" element={<Console  setIsLoggedIn={setIsLoggedIn} setLoggedInUser={setLoggedInUser}/>} />
-            <Route  path="/bookings" element={<TableBookings />}></Route>
-            <Route path="/pr" element={<Pr></Pr>}></Route>
-            <Route path="/mybookings" element={<MyBookings></MyBookings>}></Route>
+            <Route path="/*" element={<Login setIsLoggedIn={setIsLoggedIn} setLoggedInUser={setLoggedInUser} />} />
+            <Route path="/register" element={<Register />} />
+            <Route path="*" element={<Navigate to="/" />} />
           </Routes>
-          <div className="text-center">
-            <LogoutButton setIsLoggedIn={setIsLoggedIn} setLoggedInUser={setLoggedInUser}></LogoutButton>
-            {/* LogoutButton is a separate component.
-            It will clear login and user data, and redirect user back to login page. */}
-          </div>
-        </>
-      ) : (
-        // 5. Routes When NOT Logged In
-        <Routes>
-          <Route path="/*" element={<Login setIsLoggedIn={setIsLoggedIn} setLoggedInUser={setLoggedInUser} />} />
-          <Route path="/register" element={<Register />} />
-          <Route path="*" element={<Navigate to="/" />} />
-        </Routes>
-      )}
-    </Router>
+        )}
+      </Router>
+    </ApiProvider>
   );
 }
 

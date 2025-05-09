@@ -28,9 +28,10 @@ import SectionSixF5 from "./SectionSixF5";
 import SectionSixF6 from "./SectionSixF6";
 import SectionSixF7 from "./SectionSixF7";
 import { useNavigate } from "react-router-dom";
-const apiUrl = 'https://ballr-mern-ashish.onrender.com/api/v1';
+import { useApi } from "../../ApiContext";
 
-function Console({ setIsLoggedIn, setLoggedInUser }) {
+function Console({ setIsLoggedIn, setLoggedInUser}) {
+  const apiUrl = useApi();
   const navigate = useNavigate();
   const {
     date
@@ -60,7 +61,7 @@ function Console({ setIsLoggedIn, setLoggedInUser }) {
 
   const fetchBookings = async () => {
     try {
-      const res = await axios.get(`${apiUrl}/getallbookings`);
+      const res = await axios.get(`https://ballr-mern-ashish.onrender.com/api/v1/getallbookings`);
       // Filter bookings matching the URL date (bookedDate field)
       const formattedUrlDate = convertDateFormat(date);
 
@@ -97,7 +98,7 @@ function Console({ setIsLoggedIn, setLoggedInUser }) {
       currDate: new Date().toLocaleString("en-GB"),
     };
       try {
-        const response = await axios.post(`${apiUrl}/create-booking`, bookedTables);
+        const response = await axios.post(`https://ballr-mern-ashish.onrender.com/api/v1/create-booking`, bookedTables);
         if (response.data.isActive === false){
           toast.error("Your account is not active! Please contact Admin");
           localStorage.removeItem("isLoggedIn");
@@ -131,7 +132,7 @@ function Console({ setIsLoggedIn, setLoggedInUser }) {
       return; // exit if user cancels
     }
     try {
-      const response = await axios.delete(`${apiUrl}/delete-booking/${bookingId}`);
+      const response = await axios.delete(`https://ballr-mern-ashish.onrender.com/api/v1/delete-booking/${bookingId}`);
 
       if (response.data.success) {
         toast.success("Booking deleted successfully!");

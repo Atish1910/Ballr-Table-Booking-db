@@ -20,7 +20,7 @@ function Register() {
   
     try {
       // Step 1: Get all users
-      const allUsersRes = await axios.get("https://ballr-mern-ashish.onrender.com/api/v1/getAllusers");
+      const allUsersRes = await axios.get(`https://ballr-mern-ashish.onrender.com/api/v1/getAllusers`);
   
       // Step 2: Check if email already exists (case-insensitive)
       const users = allUsersRes.data.data || []; // fallback to empty array

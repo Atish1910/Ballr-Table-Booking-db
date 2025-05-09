@@ -6,6 +6,7 @@ import Cookies from "js-cookie";
 import usermanual from "../../img/Ballr-user-manual.pdf";
 
 function Login({ setIsLoggedIn, setLoggedInUser }) {
+  
   const navigate = useNavigate();
   
   const apiUrl = import.meta.env.REACT_BASE_URL;
@@ -20,7 +21,7 @@ function Login({ setIsLoggedIn, setLoggedInUser }) {
     debugger
     try {
       // Get APi to check where User is Present in DB or not
-      const allUsersRes = await axios.get("https://ballr-mern-ashish.onrender.com/api/v1/getAllusers");
+      const allUsersRes = await axios.get(`https://ballr-mern-ashish.onrender.com/api/v1/getAllusers`);
       const users = allUsersRes.data.data || [];
       const emailExists = users.some(
         (user) => 

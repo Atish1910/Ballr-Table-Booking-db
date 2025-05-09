@@ -16,7 +16,6 @@ function TableBookings() {
   const fetchBookings = async () => {
     try {
       const res = await axios.get(`https://ballr-mern-ashish.onrender.com/api/v1/getallbookings`);
-  
       const sortedBookings = res.data.data.sort((a, b) => {
         const dateA = new Date(a.currDate);
         const dateB = new Date(b.currDate);
