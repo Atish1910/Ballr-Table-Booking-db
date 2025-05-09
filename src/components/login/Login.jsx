@@ -20,7 +20,7 @@ function Login({ setIsLoggedIn, setLoggedInUser }) {
     debugger
     try {
       // Get APi to check where User is Present in DB or not
-      const allUsersRes = await axios.get("http://localhost:4000/getAllusers");
+      const allUsersRes = await axios.get("https://ballr-mern-ashish.onrender.com/api/v1/getAllusers");
       const users = allUsersRes.data.data || [];
       const emailExists = users.some(
         (user) => 
@@ -33,7 +33,7 @@ function Login({ setIsLoggedIn, setLoggedInUser }) {
         return
       }
       // Send login data to API
-      const response = await axios.post(`http://localhost:4000/login`, data);
+      const response = await axios.post(`https://ballr-mern-ashish.onrender.com/api/v1/login`, data);
 
 
       if (response.status === 200) {

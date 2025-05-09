@@ -27,10 +27,11 @@ import SectionSixF4 from "./SectionSixF4";
 import SectionSixF5 from "./SectionSixF5";
 import SectionSixF6 from "./SectionSixF6";
 import SectionSixF7 from "./SectionSixF7";
+import { useNavigate } from "react-router-dom";
+const apiUrl = 'https://ballr-mern-ashish.onrender.com/api/v1';
 
-function Console() {
-  
-  const apiUrl = import.meta.env.REACT_BASE_URL;
+function Console({ setIsLoggedIn, setLoggedInUser }) {
+  const navigate = useNavigate();
   const {
     date
   } = useParams();
@@ -48,8 +49,6 @@ function Console() {
     },
   } = useForm();
 
-  const [bookedTables, setBookedTables] = useState({});
-
   const loggedInUser = JSON.parse(localStorage.getItem("loggedInUser")) || {
     name: "N/A",
   };
@@ -61,7 +60,7 @@ function Console() {
 
   const fetchBookings = async () => {
     try {
-      const res = await axios.get(`http://localhost:4000/getallbookings`);
+      const res = await axios.get(`${apiUrl}/getallbookings`);
       // Filter bookings matching the URL date (bookedDate field)
       const formattedUrlDate = convertDateFormat(date);
 
@@ -93,26 +92,35 @@ function Console() {
       guestName: data.guestName,
       guestQuantity: data.guestQuantity,
       prName: loggedInUser.name,
+      id: loggedInUser.id,
       bookedDate: currentDate,
       currDate: new Date().toLocaleString("en-GB"),
     };
-
-    try {
-      const response = await axios.post(`http://localhost:4000/create-booking`, bookedTables);
-
-      if (response.data.success) {
-        toast.success("Booking successful!");
-        document.getElementById("closeModal").click();
-        fetchBookings()
-        reset();
-
-      } else {
-        toast.error(response.data.message || "Booking failed!");
+      try {
+        const response = await axios.post(`${apiUrl}/create-booking`, bookedTables);
+        if (response.data.isActive === false){
+          toast.error("Your account is not active! Please contact Admin");
+          localStorage.removeItem("isLoggedIn");
+          localStorage.removeItem("loggedInUser");
+          setIsLoggedIn(false);
+          setLoggedInUser(null);
+          navigate("/");
+        }
+        else{
+          if (response.data.success) {
+            toast.success("Booking successful!");
+            document.getElementById("closeModal").click();
+            fetchBookings()
+            reset();
+  
+          } else {
+            toast.error(response.data.message || "Booking failed!");
+          }
+        }
+      } catch (error) {
+        console.error("Error saving booking:", error);
+        toast.error("Error while booking, please try again.");
       }
-    } catch (error) {
-      console.error("Error saving booking:", error);
-      toast.error("Error while booking, please try again.");
-    }
   }
 
   /// Delete Booking
@@ -123,7 +131,7 @@ function Console() {
       return; // exit if user cancels
     }
     try {
-      const response = await axios.delete(`http://localhost:4000/delete-booking/${bookingId}`);
+      const response = await axios.delete(`${apiUrl}/delete-booking/${bookingId}`);
 
       if (response.data.success) {
         toast.success("Booking deleted successfully!");

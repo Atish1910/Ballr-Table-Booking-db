@@ -44,7 +44,7 @@ function App() {
           {/* <ExlusiveVip /> */}
           <Routes>
             <Route path="/" element={<Navigate to={`/${new Date().toISOString().slice(0, 10)}`} />} />
-            <Route path="/:date" element={<Console />} />
+            <Route path="/:date" element={<Console  setIsLoggedIn={setIsLoggedIn} setLoggedInUser={setLoggedInUser}/>} />
             <Route  path="/bookings" element={<TableBookings />}></Route>
             <Route path="/pr" element={<Pr></Pr>}></Route>
             <Route path="/mybookings" element={<MyBookings></MyBookings>}></Route>

@@ -15,7 +15,7 @@ function MyBookings() {
   const fetchBookings = async () => {
     try {
       const loggedInUser = JSON.parse(localStorage.getItem("loggedInUser"));
-      const res = await axios.get(`http://localhost:4000/getallbookings`);
+      const res = await axios.get(`https://ballr-mern-ashish.onrender.com/api/v1/getallbookings`);
   
       // Filter bookings by logged-in PR name
       const userBookings = res.data.data.filter(
